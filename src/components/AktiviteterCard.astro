@@ -35,7 +35,7 @@ const { items } = Astro.props;
       items.map((item) => (
         <a href={item.href ?? "#"} class="group relative shrink-0 w-[56vw] aspect-[4/5] overflow-hidden snap-center block">
           <img src={item.image} alt={item.imageAlt ?? item.title} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
           <div class="absolute bottom-0 left-0 right-0 p-5 md:p-10">
             <Heading htmlheading="h3" size="medium" font="display" stylingclasses="text-white font-light mb-2">
               {item.title}
@@ -53,7 +53,7 @@ const { items } = Astro.props;
 </div>
 
 <!-- DESKTOP AKTIVITETER SECTION -->
-<div class="hidden lg:grid grid-cols-3 gap-14">
+<div class="hidden lg:grid grid-cols-3 gap-10 md:px-20">
   {
     items.map((item) => (
       <a href={item.href ?? "#"} class="group relative h-[500px] overflow-hidden block ">
@@ -61,18 +61,21 @@ const { items } = Astro.props;
         <img src={item.image} alt={item.imageAlt ?? item.title} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
 
         {/* Gradient */}
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
 
         {/* Tekst ovenpå */}
-        <div class="absolute inset-0 flex flex-col justify-end md:p-6">
-          <Heading htmlheading="h3" size="medium" font="display" stylingclasses="text-white font-light">
-            {item.title}
-          </Heading>
-          {item.body && (
-            <Text teksttype="brødtekst" stylingclasses="text-white/80 font-light">
-              {item.body}
-            </Text>
-          )}
+        <div class="absolute inset-0 flex items-end p-6">
+          <div class="w-full min-h-[90px] flex flex-col justify-end space-y-2">
+            <Heading htmlheading="h3" size="medium" font="display" stylingclasses="text-white font-light">
+              {item.title}
+            </Heading>
+
+            {item.body && (
+              <Text teksttype="brødtekst" stylingclasses="text-white/80 font-light">
+                {item.body}
+              </Text>
+            )}
+          </div>
         </div>
       </a>
     ))
