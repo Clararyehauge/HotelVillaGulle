@@ -234,13 +234,14 @@ const reviews = [
   </section>
 
   <!-- HISTORIE SECTION -->
-  <section class="relative py-20 md:py-32 overflow-hidden w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+  <section class="relative py-20 md:py-20 overflow-hidden w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
     <div class="relative flex flex-col md:block">
       <!-- BLÅ BOKS -->
       <div class="order-1
       bg-secondary-blue-100
       w-[92%]
       md:w-[72%]
+        md:h-[700px]
       ml-0
       md:ml-auto
       px-8 py-14
@@ -248,11 +249,8 @@ const reviews = [
       relative z-10">
         <div class="max-w-[560px]">
           <Heading htmlheading="h2" size="large" font="display" stylingclasses="font-light mb-8 leading-[1.02]"> På sporet af hotellets historie </Heading>
-
           <Text teksttype="brødtekst" stylingclasses="font-light mb-6"> Når du træder ind ad døren på Hotel Villa Gulle, træder du ind i et stykke af Nyborgs historie. </Text>
-
           <Text teksttype="brødtekst" stylingclasses="font-light mb-10"> Vores fundament blev lagt helt tilbage i 1873, da den fynske skibsmægler Hans Friis opførte en storslået klassicistisk villa til sig selv og sin familie. Siden da har bygningerne levet mange liv – fra samlingspunkt for byens borgere i 1920'ernes nybyggede festsal til det lokale missionshotel. </Text>
-
           <a href="/omhotelvillagulle">
             <Button variant="secondary" size="small">Læs mere</Button>
           </a>
@@ -275,10 +273,10 @@ const reviews = [
 
   <!-- GÆSTE REVIEWS SECTION -->
   <section class="relative z-20 md:pb-15">
-    <div class="flex items-center gap-4 w-full">
+    <div class="flex items-center gap-2 w-full">
       <!-- VENSTRE -->
       <button id="prev" class="shrink-0 z-10">
-        <img src="/icons/knap_review_venstre.png" class="w-8 h-7 pl-1 md:pl-1" alt="venstre" />
+        <img src="/icons/knap_review_venstre.png" class="w-7 h-auto md:w-8 md:h-auto pl-1 md:pl-2" alt="venstre" />
       </button>
 
       <!-- VIEWPORT -->
@@ -296,7 +294,7 @@ const reviews = [
 
       <!-- HØJRE -->
       <button id="next" class="shrink-0 z-10">
-        <img src="/icons/knap_review_hoejre.png" class="w-8 h-7 pr-1 md:pl-1" alt="højre" />
+        <img src="/icons/knap_review_hoejre.png" class="w-7 h-auto md:w-9 md:h-auto pr-1 md:pl-2" alt="højre" />
       </button>
     </div>
 
