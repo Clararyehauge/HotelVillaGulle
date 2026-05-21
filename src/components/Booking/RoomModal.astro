@@ -36,13 +36,13 @@ const isSelect = variant === "select";
       Fra {price} dkk
     </Heading>
     <div class="flex items-center justify-between gap-3">
-      <a href={`/rooms/${slug}`}>
-        <Button variant="secondary" size="small">Mere info</Button>
-      </a>
-      <a href="#" class="choose-room" data-room-id={data.id}>
-        <Button variant="primary" size="small">Vælg</Button>
-      </a>
-    </div>
+  <a href={`/rooms/${slug}`} class="flex-1 block">
+    <Button variant="secondary" size="small" stylingclasses="w-full block">Mere info</Button>
+  </a>
+  <a href="#" class="choose-room flex-1 block" data-room-id={data.id}>
+    <Button variant="primary" size="small" stylingclasses="w-full block">Vælg</Button>
+  </a>
+</div>
   </div>
 ) : (
   <div class="flex items-center justify-between gap-3">
@@ -77,3 +77,10 @@ const isSelect = variant === "select";
   });
 </script>
 
+<style>
+  :global(.choose-room > *),
+  :global(.flex-1 > *) {
+    width: 100%;
+    display: block;
+  }
+</style>

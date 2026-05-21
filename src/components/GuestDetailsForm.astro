@@ -75,8 +75,12 @@ const roomsJson = JSON.stringify(rooms); // ← og denne
 
     <!-- Tilbage + Betal -->
     <div class="flex justify-between gap-3">
-      <Button id="back-btn" type="button" variant="secondary" size="medium" stylingclasses="w-full justify-center">Tilbage</Button>
-      <Button id="pay-btn" type="submit" variant="primary" size="medium" stylingclasses="w-full justify-center">Betal</Button>
+      <div class="flex-1">
+        <Button id="back-btn" type="button" variant="secondary" size="medium" stylingclasses="w-full block">Tilbage</Button>
+      </div>
+      <div class="flex-1">
+        <Button id="pay-btn" type="submit" variant="primary" size="medium" stylingclasses="w-full block">Betal</Button>
+      </div>
     </div>
 
     <!-- Juridisk tekst -->
@@ -140,5 +144,10 @@ const roomsJson = JSON.stringify(rooms); // ← og denne
 <style>
   input:invalid:not(:placeholder-shown) {
     border-color: #ef4444;
+  }
+  :global(#back-btn),
+  :global(#pay-btn) {
+    width: 100%;
+    display: block;
   }
 </style>
