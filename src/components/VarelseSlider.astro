@@ -16,7 +16,7 @@ interface Props {
 const { slides } = Astro.props;
 ---
 
-<section style="--page-padding: clamp(1rem, 5vw, 2.5rem); padding: var(--page-padding)">
+<section class="w-full px-4 md:px-8 lg:px-20 py-3 md:py-12 lg:py-12 max-w-[1400px] mx-auto">
   <div class="vaerrelse-slider select-none">
     {/* Tekst-sektion */}
     <div class="mb-6 overflow-hidden">
@@ -48,18 +48,16 @@ const { slides } = Astro.props;
     <div class="relative">
       {/* Venstre pil */}
       <button data-prev aria-label="Forrige værelse" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-20
-               w-10 h-10 rounded-full bg-white/90 shadow-md
-               flex items-center justify-center
-               hover:bg-white active:scale-95 transition-all duration-200">
-        <img src="/icons/knap_review_venstre.png" alt="" class="w-5 h-5 object-contain" />
+               w-10 h-10 rounded-ful
+               flex items-center justify-center">
+        <img src="/icons/knap_review_venstre.png" alt="" class="w-5 h-5 md:w-9 md:h-9 object-contain" />
       </button>
 
       {/* Højre pil */}
       <button data-next aria-label="Næste værelse" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-20
-               w-10 h-10 rounded-full bg-white/90 shadow-md
-               flex items-center justify-center
-               hover:bg-white active:scale-95 transition-all duration-200">
-        <img src="/icons/knap_review_hoejre.png" alt="" class="w-5 h-5 object-contain" />
+               w-10 h-10 rounded-full
+               flex items-center justify-center">
+        <img src="/icons/knap_review_hoejre.png" alt="" class="w-5 h-5 md:w-9 md:h-9 object-contain" />
       </button>
 
       {/* Karussel */}

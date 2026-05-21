@@ -115,7 +115,7 @@ const roomsJson = JSON.stringify(rooms); // ← og denne
     for (const [key, value] of formData.entries()) {
       newParams.set(key, value);
     }
-    window.location.href = `/bekraeftelse?${newParams.toString()}`;
+    window.location.href = `/book_step4?${newParams.toString()}`;
   });
 
   // Pris

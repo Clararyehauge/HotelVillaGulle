@@ -53,7 +53,7 @@ const { items } = Astro.props;
 </div>
 
 <!-- DESKTOP AKTIVITETER SECTION -->
-<div class="hidden lg:grid grid-cols-3 gap-10 md:px-20">
+<div class="hidden lg:grid grid-cols-3 gap-10">
   {
     items.map((item) => (
       <a href={item.href ?? "#"} class="group relative h-[500px] overflow-hidden block ">
