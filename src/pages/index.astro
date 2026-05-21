@@ -234,25 +234,43 @@ const reviews = [
   </section>
 
   <!-- HISTORIE SECTION -->
-  <section class="relative py-10 mb-20">
-    <div class="relative md:flex md:items-center">
-      <div class="bg-secondary-blue-100 px-15 md:px-60 md:pt-20 pt-16 md:w-[110%] w-[80%] md:h-160 relative z-10 md:order-2">
-        <Heading htmlheading="h2" size="large" font="display" stylingclasses="font-light mb-4 md:pt-20"> På sporet af hotellets historie </Heading>
-        <Text teksttype="brødtekst" stylingclasses="font-light mb-4"> Når du træder ind ad døren på Hotel Villa Gulle, træder du ind i et stykke af Nyborgs historie. </Text>
-        <Text teksttype="brødtekst" stylingclasses="font-light mb-6"> Vores fundament blev lagt helt tilbage i 1873, da den fynske skibsmægler Hans Friis opførte en storslået klassicistisk villa til sig selv og sin familie. Siden da har bygningerne levet mange liv – fra samlingspunkt for byens borgere i 1920’ernes nybyggede festsal til det lokale missionshotel. </Text>
-        <a href="/omhotelvillagulle">
-          <Button variant="secondary" size="small"> Læs mere </Button>
-        </a>
+  <section class="relative py-20 md:py-32 overflow-hidden w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+    <div class="relative flex flex-col md:block">
+      <!-- BLÅ BOKS -->
+      <div class="order-1
+      bg-secondary-blue-100
+      w-[92%]
+      md:w-[72%]
+      ml-0
+      md:ml-auto
+      px-8 py-14
+      md:px-32 md:py-35
+      relative z-10">
+        <div class="max-w-[560px]">
+          <Heading htmlheading="h2" size="large" font="display" stylingclasses="font-light mb-8 leading-[1.02]"> På sporet af hotellets historie </Heading>
+
+          <Text teksttype="brødtekst" stylingclasses="font-light mb-6"> Når du træder ind ad døren på Hotel Villa Gulle, træder du ind i et stykke af Nyborgs historie. </Text>
+
+          <Text teksttype="brødtekst" stylingclasses="font-light mb-10"> Vores fundament blev lagt helt tilbage i 1873, da den fynske skibsmægler Hans Friis opførte en storslået klassicistisk villa til sig selv og sin familie. Siden da har bygningerne levet mange liv – fra samlingspunkt for byens borgere i 1920'ernes nybyggede festsal til det lokale missionshotel. </Text>
+
+          <a href="/omhotelvillagulle">
+            <Button variant="secondary" size="small">Læs mere</Button>
+          </a>
+        </div>
       </div>
-      <div class="relative z-20 md:order-1 -mt-15 ml-auto w-80 md:w-230">
-        <img src="/forside_historie.png" alt="Aktiviteter" class="w-full h-auto" />
+
+      <!-- BILLEDE -->
+      <div class="order-2
+      relative z-20
+      w-[72%]
+      ml-auto
+      mt-[-2rem]
+      md:absolute md:left-0 md:top-0 md:bottom-0
+      md:w-[32%]
+      md:mt-0">
+        <img src="/forside_historie.png" alt="Hotel Villa Gulle historie" class="w-full h-full object-cover" />
       </div>
     </div>
-  </section>
-
-  <!-- AKTIVITETER SECTION -->
-  <section>
-    <DropdownSection heading="Aktiviteter" image="/aktiviteter_drop.png" imageAlt="Terrasse med borde og stole" items={aktiviteterdropdown} buttonText="Læs mere" buttonHref="/aktiviteter" />
   </section>
 
   <!-- GÆSTE REVIEWS SECTION -->
