@@ -97,10 +97,6 @@ const aktiviteterdropdown = [
         ))
       }
     </section>
-    <!-- DOTS I MOBIL -->
-    <div id="info-dots" class="flex justify-center gap-2 md:hidden">
-      {infoCards.map((_, i) => <button class="dot w-2.5 h-2.5 rounded-full bg-gray-300  transition" data-index={i} aria-label={`Gå til kort ${i + 1}`} />)}
-    </div>
 
     <!-- DROPDOWN / VI SVARE PÅ DET VIGTIGSTE SECTION -->
     <div>
@@ -180,24 +176,6 @@ const aktiviteterdropdown = [
         container.addEventListener("scroll", () => {
           setActiveDot(getIndex());
         });
-
-        dots.forEach((dot) => {
-          dot.addEventListener("click", () => {
-            const index = Number(dot.dataset.index);
-            const cards = getCards();
-
-            const cardWidth = cards[0].getBoundingClientRect().width;
-
-            container.scrollTo({
-              left: index * cardWidth,
-              behavior: "smooth",
-            });
-
-            setActiveDot(index);
-          });
-        });
-
-        setActiveDot(0);
       });
     </script>
   </main></MainLayout
