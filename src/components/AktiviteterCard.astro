@@ -1,5 +1,4 @@
 ---
-// AktiviteterCard.astro
 import Heading from "./Heading.astro";
 import Text from "./Text.astro";
 
@@ -18,97 +17,97 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<!-- MOBIL AKTIVITETER SECTION -->
+<!-- MOBIL -->
 <div class="lg:hidden relative">
-  <!-- Pile -->
-  <button id="prev" aria-label="Forrige" class="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white rounded-full w-9 h-9 flex items-center justify-center shadow transition">
-    <img src="/icons/knap_review_venstre.png" alt="Forrige" class="w-9 h-9" />
+
+  <button data-aktivitet-prev aria-label="Forrige" class="absolute -left-8 md:-left-16 top-1/2 -translate-y-1/2 z-10">
+    <img src="/icons/knap_review_venstre.png" alt="Forrige" class="w-7 h-auto md:w-8 md:h-auto" />
   </button>
 
-  <button id="next" aria-label="Næste" class="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white rounded-full w-9 h-9 flex items-center justify-center shadow transition">
-    <img src="/icons/knap_review_hoejre.png" alt="Næste" class="w-9 h-9" />
+  <button data-aktivitet-next aria-label="Næste" class="absolute -right-8 md:-right-16 top-1/2 -translate-y-1/2 z-10">
+    <img src="/icons/knap_review_hoejre.png" alt="Næste" class="w-7 h-auto md:w-9 md:h-auto" />
   </button>
 
-  <!-- SCROLL CONTAINER -->
-  <div id="slider" class="flex overflow-x-auto gap-4 px-8 py-4 snap-x snap-mandatory scroll-smooth scrollbar-hide" style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;">
-    {
-      items.map((item) => (
-        <a href={item.href ?? "#"} class="group relative shrink-0 w-[56vw] aspect-[4/5] overflow-hidden snap-center block">
-          <img src={item.image} alt={item.imageAlt ?? item.title} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-          <div class="absolute bottom-0 left-0 right-0 p-5 md:p-10">
-            <Heading htmlheading="h3" size="medium" font="display" stylingclasses="text-white font-light mb-2">
-              {item.title}
-            </Heading>
-            {item.body && (
-              <Text teksttype="brødtekst" stylingclasses="text-white/80 font-light">
-                {item.body}
-              </Text>
-            )}
-          </div>
-        </a>
-      ))
-    }
+  <div data-aktivitet-slider class="flex overflow-x-auto gap-4 py-4 snap-x snap-mandatory scroll-smooth scrollbar-hide" style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;">
+    {items.map((item) => (
+      <div class="group relative shrink-0 w-[46vw] aspect-[3/4] overflow-hidden snap-center block">
+        <img src={item.image} alt={item.imageAlt ?? item.title} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+        <!-- Gradient altid synlig -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent transition-opacity duration-400" />
+        <!-- Extra overlay ved hover -->
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-400" />
+        <div class="absolute bottom-0 left-0 right-0 p-4">
+          <Heading htmlheading="h3" size="medium" font="display" stylingclasses="text-white font-light mb-1">
+            {item.title}
+          </Heading>
+          {item.body && (
+            <Text teksttype="brødtekst" stylingclasses="text-white/80 font-light">
+              {item.body}
+            </Text>
+          )}
+        </div>
+      </div>
+    ))}
   </div>
 </div>
 
-<!-- DESKTOP AKTIVITETER SECTION -->
-<div class="hidden lg:grid grid-cols-3 gap-10">
-  {
-    items.map((item) => (
-      <a href={item.href ?? "#"} class="group relative h-[500px] overflow-hidden block ">
-        {/* Billede */}
-        <img src={item.image} alt={item.imageAlt ?? item.title} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
-
-        {/* Gradient */}
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-
-        {/* Tekst ovenpå */}
-        <div class="absolute inset-0 flex items-end p-6">
-          <div class="w-full min-h-[90px] flex flex-col justify-end space-y-2">
-            <Heading htmlheading="h3" size="medium" font="display" stylingclasses="text-white font-light">
-              {item.title}
-            </Heading>
-
-            {item.body && (
-              <Text teksttype="brødtekst" stylingclasses="text-white/80 font-light">
-                {item.body}
-              </Text>
-            )}
-          </div>
+<!-- DESKTOP -->
+<div class="hidden lg:grid grid-cols-3 gap-15">
+  {items.map((item) => (
+    <div class="group relative h-[450px] overflow-hidden block">
+   
+      <img src={item.image} alt={item.imageAlt ?? item.title} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+      <!-- Gradient altid synlig -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent transition-opacity duration-400" />
+      <!-- Extra overlay ved hover -->
+      <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-400" />
+      <div class="absolute inset-0 flex items-end p-6">
+        <div class="w-full flex flex-col justify-end">
+          <Heading htmlheading="h3" size="medium" font="display" stylingclasses="text-white font-light">
+            {item.title}
+          </Heading>
+          {item.body && (
+            <Text teksttype="brødtekst" stylingclasses="text-white/80 font-light">
+              {item.body}
+            </Text>
+          )}
         </div>
-      </a>
-    ))
-  }
+      </div>
+      </div>
+    
+  ))}
 </div>
 
 <script>
-  const slider = document.getElementById("slider");
-  const prev = document.getElementById("prev");
-  const next = document.getElementById("next");
+  document.addEventListener("DOMContentLoaded", () => {
+    const slider = document.querySelector("[data-aktivitet-slider]") as HTMLElement;
+    const prev = document.querySelector("[data-aktivitet-prev]") as HTMLButtonElement;
+    const next = document.querySelector("[data-aktivitet-next]") as HTMLButtonElement;
 
-  function getCardWidth() {
-    const card = slider?.querySelector("a");
-    if (!card) return 0;
-    return card.getBoundingClientRect().width + 16; //
-  }
+    if (!slider || !prev || !next) return;
 
-  prev?.addEventListener("click", () => {
-    slider?.scrollBy({ left: -getCardWidth(), behavior: "smooth" });
-  });
+    function getCardWidth() {
+      const card = slider.querySelector("div");
+      if (!card) return 0;
+      return card.getBoundingClientRect().width + 16;
+    }
 
-  next?.addEventListener("click", () => {
-    slider?.scrollBy({ left: getCardWidth(), behavior: "smooth" });
+    prev.addEventListener("click", () => {
+      slider.scrollBy({ left: -getCardWidth(), behavior: "smooth" });
+    });
+
+    next.addEventListener("click", () => {
+      slider.scrollBy({ left: getCardWidth(), behavior: "smooth" });
+    });
   });
 </script>
 
 <style>
-  /* Skjul scrollbar på alle browsere */
-  #slider {
+  [data-aktivitet-slider] {
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
-  #slider::-webkit-scrollbar {
+  [data-aktivitet-slider]::-webkit-scrollbar {
     display: none;
   }
 </style>

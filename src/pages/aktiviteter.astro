@@ -54,40 +54,42 @@ const aktivitetercard = [
 
 <MainLayout title="Aktiviteter">
   <HeroPages title="Aktiviteter" leftImage="/hero_aktiviteter.png" leftImageAlt="Villa Gulle facade" rightImage="/Petanque2.svg" rightImageAlt="Villa Gulle tegning" content="På Hotel Villa Gulle ønsker vi at være med til at skabe aktiv, hyggelig og begivenhedsrig ferie for vores gæster. Derfor tilbyder vi et bredt udvalgt af faciliteter, som er inkluderet i prisen, så du kan få det maksimale ud af dine feriedage." subtitle="Villa Gulle" />
-  <main>
-    <div class="text-center pt-15 md:pt-20">
-      <Heading htmlheading="h2" size="large" font="display" stylingclasses="font-light"> Hvad du kan opleve</Heading>
-    </div>
-    <div class="page-container">
-      <AktiviteterCard items={aktivitetercard} />
-      <!-- DOTS -->
-      <div id="dots" class="flex gap-2 mt-4 justify-center mb-20 md:mb-8"></div>
-    </div>
 
-    <!-- HOTELLETS OMGIVELSER SECTION -->
-    <section class="page-container">
+  <main class="flex flex-col gap-15 md:gap-24">
+    <!-- AKTIVITETER KORT -->
+    <section class="page-container flex flex-col gap-6">
+      <div class="text-center mt-15 md:mt-20">
+        <Heading htmlheading="h2" size="large" font="display" stylingclasses="font-light"> Hvad du kan opleve </Heading>
+      </div>
+      <div class="">
+        <AktiviteterCard items={aktivitetercard} />
+        <div id="dots" class="flex gap-2 mt-4 justify-center"></div>
+      </div>
+    </section>
+
+    <!-- HOTELLETS OMGIVELSER -->
+    <section class="page-container mb-15 md:mb-24">
       <Heading htmlheading="h2" size="large" font="display" stylingclasses="text-center pb-5"> Hotellets omgivelser </Heading>
       <div class="grid md:grid-cols-3 gap-10 items-center">
-        <!-- BYEN -->
+        <!-- BYEN & FYN -->
         <div class="flex flex-col gap-8 md:col-span-1">
           <div class="flex flex-col">
-            <Heading htmlheading="h3" size="medium" font="display"> Hvad tilbyder byen? </Heading>
-            <Text teksttype="brødtekst"> Nyborg er en by fyldt med spændende oplevelser, og har mange gode udflugtsmuligheder inden for kort afstand. Som gæst på Hotel Villa Gulle har du en perfekt beliggende base til at kunne udforske Nyborg by og dens nærområde. </Text>
+            <Heading htmlheading="h3" size="medium" font="display">Hvad tilbyder byen?</Heading>
+            <Text teksttype="brødtekst">Nyborg er en by fyldt med spændende oplevelser, og har mange gode udflugtsmuligheder inden for kort afstand. Som gæst på Hotel Villa Gulle har du en perfekt beliggende base til at kunne udforske Nyborg by og dens nærområde.</Text>
             <a href="https://www.visitnyborg.dk/nyborg/oplev-nyborg" target="_blank" rel="noopener noreferrer">
               <Button variant="secondary" size="small">Læs mere</Button>
             </a>
           </div>
-          <!-- FYN -->
           <div class="flex flex-col">
-            <Heading htmlheading="h3" size="medium" font="display"> Hvad tilbyder Fyn? </Heading>
-            <Text teksttype="brødtekst"> Fyn byder på en uforglemmelig blanding af kultur, natur og historie. Herregårde, maleriske landsbyer, frodig natur og fantastiske badestrande med rent og klart vand. </Text>
+            <Heading htmlheading="h3" size="medium" font="display">Hvad tilbyder Fyn?</Heading>
+            <Text teksttype="brødtekst">Fyn byder på en uforglemmelig blanding af kultur, natur og historie. Herregårde, maleriske landsbyer, frodig natur og fantastiske badestrande med rent og klart vand.</Text>
             <a href="https://www.visitfyn.dk/explore/begivenheder-cid58/det-sker-cid59?sort=DATE" target="_blank" rel="noopener noreferrer">
               <Button variant="secondary" size="small">Læs mere</Button>
             </a>
           </div>
         </div>
 
-        <!-- Billede -->
+        <!-- KORT -->
         <div class="md:col-span-2 flex justify-center">
           <img src="/kort_nyborg.png" alt="Kort over Nyborg" class="w-full max-h-[650px] object-contain" />
         </div>
@@ -100,7 +102,6 @@ const aktivitetercard = [
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
-
   .scrollbar-hide {
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -111,9 +112,6 @@ const aktivitetercard = [
   const viewport = document.getElementById("viewport");
   const track = document.getElementById("track");
   const slides = track.children;
-
-  const prevBtn = document.getElementById("prev");
-  const nextBtn = document.getElementById("next");
   const dotsContainer = document.getElementById("dots");
 
   let index = 0;
@@ -128,49 +126,30 @@ const aktivitetercard = [
 
   function update() {
     const slideWidth = slides[0].offsetWidth;
-    viewport.scrollTo({
-      left: slideWidth * index,
-      behavior: "smooth",
-    });
-
+    viewport.scrollTo({ left: slideWidth * index, behavior: "smooth" });
     updateDots();
   }
 
   function createDots() {
     dotsContainer.innerHTML = "";
-
     for (let i = 0; i <= maxIndex(); i++) {
       const dot = document.createElement("button");
       dot.className = "w-2.5 h-2.5 rounded-full transition-all";
-
       dot.addEventListener("click", () => {
         index = i;
         update();
       });
-
       dotsContainer.appendChild(dot);
     }
-
     updateDots();
   }
 
   function updateDots() {
     const dots = dotsContainer.children;
-
     for (let i = 0; i < dots.length; i++) {
       dots[i].className = i === index ? "w-6 h-2.5 rounded-full bg-black transition-all" : "w-2.5 h-2.5 rounded-full bg-gray-300 transition-all";
     }
   }
-
-  prevBtn.addEventListener("click", () => {
-    index = Math.max(index - 1, 0);
-    update();
-  });
-
-  nextBtn.addEventListener("click", () => {
-    index = Math.min(index + 1, maxIndex());
-    update();
-  });
 
   viewport.addEventListener("scroll", () => {
     const slideWidth = slides[0].offsetWidth;

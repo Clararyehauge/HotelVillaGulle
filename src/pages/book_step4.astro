@@ -7,7 +7,7 @@ import StepIndicator from "../components/StepIndicator.astro";
 ---
 
 <MainLayout title="Bekræftelse">
-  <main class="page-container" style="--page-padding: clamp(1rem, 4vw, 2.5rem)">
+  <main class="page-container py-10 md:py-12" style="--page-padding: clamp(1rem, 4vw, 2.5rem)">
     <div>
       <StepIndicator currentStep={4} />
     </div>
@@ -19,7 +19,9 @@ import StepIndicator from "../components/StepIndicator.astro";
       <Text teksttype="signatur" stylingclasses="text-center pb-4">Villa Gulle </Text>
     </div>
     <div class="flex justify-center pb-7">
-      <img src="/Sort_logo_2.svg" alt="Sort logo" class="w-80 sd:w-70 md:w-150 h-auto mx-auto" />
+      <a href="/">
+        <img src="/Sort_logo_2.svg" alt="Sort logo" class="w-80 sd:w-70 md:w-150 h-auto mx-auto" />
+      </a>
     </div>
-  </main></MainLayout
->
+  </main>
+</MainLayout>
