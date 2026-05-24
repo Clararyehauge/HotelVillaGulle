@@ -49,6 +49,8 @@ const { items } = Astro.props;
       </div>
     ))}
   </div>
+     <!-- Dots (mobil) -->
+  <div id="aktiviteter-dots" class="flex justify-center gap-2 md:hidden"></div>
 </div>
 
 <!-- DESKTOP -->
@@ -79,17 +81,19 @@ const { items } = Astro.props;
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const slider = document.querySelector("[data-aktivitet-slider]") as HTMLElement;
-    const prev = document.querySelector("[data-aktivitet-prev]") as HTMLButtonElement;
-    const next = document.querySelector("[data-aktivitet-next]") as HTMLButtonElement;
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector("[data-aktivitet-slider]");
+  const prev = document.querySelector("[data-aktivitet-prev]");
+  const next = document.querySelector("[data-aktivitet-next]");
+  const dotsContainer = document.getElementById("aktiviteter-dots");
 
-    if (!slider || !prev || !next) return;
+  if (!slider) return;
 
+  // arrows
+  if (prev && next) {
     function getCardWidth() {
-      const card = slider.querySelector("div");
-      if (!card) return 0;
-      return card.getBoundingClientRect().width + 16;
+      const card = slider.querySelector(":scope > div");
+      return card ? card.getBoundingClientRect().width + 16 : 0;
     }
 
     prev.addEventListener("click", () => {
@@ -99,7 +103,65 @@ const { items } = Astro.props;
     next.addEventListener("click", () => {
       slider.scrollBy({ left: getCardWidth(), behavior: "smooth" });
     });
+  }
+
+  // dots (kun hvis findes)
+  if (!dotsContainer) return;
+
+  const cards = slider.querySelectorAll(":scope > div");
+  let index = 0;
+
+  function getCardWidth() {
+    return cards[0].getBoundingClientRect().width + 16;
+  }
+
+  function createDots() {
+    dotsContainer.innerHTML = "";
+
+    cards.forEach((_, i) => {
+      const dot = document.createElement("button");
+      dot.className =
+        "w-2.5 h-2.5 rounded-full bg-gray-300 transition-all duration-300";
+
+      dot.addEventListener("click", () => {
+        index = i;
+        scrollToIndex();
+      });
+
+      dotsContainer.appendChild(dot);
+    });
+
+    updateDots();
+  }
+
+  function updateDots() {
+    const dots = dotsContainer.children;
+
+    for (let i = 0; i < dots.length; i++) {
+      dots[i].className =
+        i === index
+          ? "w-2.5 h-2.5 rounded-full bg-black transition-all duration-300"
+          : "w-2.5 h-2.5 rounded-full bg-gray-300 transition-all duration-300";
+    }
+  }
+
+  function scrollToIndex() {
+    slider.scrollTo({
+      left: index * getCardWidth(),
+      behavior: "smooth",
+    });
+
+    updateDots();
+  }
+
+  slider.addEventListener("scroll", () => {
+    const cardWidth = getCardWidth();
+    index = Math.round(slider.scrollLeft / cardWidth);
+    updateDots();
   });
+
+  createDots();
+});
 </script>
 
 <style>
