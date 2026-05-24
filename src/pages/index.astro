@@ -103,7 +103,7 @@ const reviews = [
 ];
 ---
 
-<MainLayout title="Titel">
+<MainLayout title="Hotel Villa Gulle">
   <main class="flex flex-col gap-10 md:gap-12">
     <!-- HERO SECTION — full-bleed, ingen container -->
     <section class="relative w-full h-140 lg:h-170 overflow-hidden">
@@ -199,7 +199,7 @@ const reviews = [
     />
 
     <!-- INFOGRAFIK SECTION -->
-    <section class="page-container flex flex-col items-center gap-8 justify-center">
+    <section class="page-container flex flex-col items-center gap-8 justify-center md:mt-8">
       <div class="flex items-center w-full">
         <div class="flex-1 flex flex-col items-center gap-3 px-2">
           <div class="h-12 flex items-end justify-center">
@@ -338,7 +338,7 @@ const reviews = [
 
     function updateDots() {
       Array.from(dotsContainer.children).forEach((dot, i) => {
-        dot.className = i === index ? "w-6 h-2.5 rounded-full bg-black transition-all" : "w-2.5 h-2.5 rounded-full bg-gray-300 transition-all";
+        dot.className = i === index ? "w-2.5 h-2.5 rounded-full bg-black transition-all" : "w-2.5 h-2.5 rounded-full bg-gray-300 transition-all";
       });
     }
 
