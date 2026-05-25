@@ -12,33 +12,30 @@ import Button from "./Button.astro";
   <!-- Body -->
   <div class="flex flex-col gap-5 px-6 pb-6 pt-5">
     <!-- Check-in / Check-ud bokse -->
-    <div class="flex items-center gap-3">
-      <!-- Check-in boks -->
+    <div class="flex items-stretch gap-3">
+      <!-- Check-in boks r -->
       <div class="flex flex-1 flex-col items-center overflow-hidden shadow-sm">
-        <!-- Header -->
         <div class="w-full bg-[#e8e4d8] px-4 py-2 text-center">
           <Heading htmlheading="h4" size="small" font="display" stylingclasses="text-primary-neutral-950">Check-in</Heading>
         </div>
-        <!-- Indhold -->
-        <div class="w-full flex flex-col items-center gap-0.5 bg-primary-Background-50 px-4 py-10 text-center">
-          <span class="font-display text-[1.4rem] font-bold leading-[1.2] text-primary-neutral-950" data-checkin-day>–</span>
-          <span class="font-display text-[0.85rem] font-bold text-primary-neutral-950" data-checkin-weekday></span>
+
+        <div class="w-full flex flex-col items-center justify-center gap-0.5 bg-primary-Background-50 px-4 py-10 min-h-[7rem] text-center">
+          <span class="block font-display text-[1.4rem] font-bold leading-[1.2] text-primary-neutral-950" data-checkin-day>–</span>
+          <span class="block font-display text-[0.85rem] font-bold text-primary-neutral-950" data-checkin-weekday></span>
         </div>
       </div>
 
       <!-- Divider -->
-      <div class="h-px w-6 shrink-0 bg-[rgba(255,253,245,0.4)]"></div>
+      <div class="self-center h-px w-6 shrink-0 bg-[rgba(255,253,245,0.4)]"></div>
 
-      <!-- Check-ud boks -->
       <div class="flex flex-1 flex-col items-center overflow-hidden shadow-sm">
-        <!-- Header -->
         <div class="w-full bg-[#e8e4d8] px-4 py-2 text-center">
           <Heading htmlheading="h4" size="small" font="display" stylingclasses="text-primary-neutral-950">Check-ud</Heading>
         </div>
-        <!-- Indhold -->
-        <div class="w-full flex flex-col items-center gap-0.5 bg-primary-Background-50 px-4 py-10 text-center">
-          <span class="font-display text-[1.4rem] font-bold leading-[1.2] text-primary-neutral-950" data-checkout-day>–</span>
-          <span class="font-display text-[0.85rem] font-bold text-primary-neutral-950" data-checkout-weekday></span>
+
+        <div class="w-full flex flex-col items-center justify-center gap-0.5 bg-primary-Background-50 px-4 py-10 min-h-[7rem] text-center">
+          <span class="block font-display text-[1.4rem] font-bold leading-[1.2] text-primary-neutral-950" data-checkout-day>–</span>
+          <span class="block font-display text-[0.85rem] font-bold text-primary-neutral-950" data-checkout-weekday></span>
         </div>
       </div>
     </div>

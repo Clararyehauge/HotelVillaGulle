@@ -45,12 +45,6 @@ const steps = ["Vælg dato", "Vælg værelse", "Betaling", "Bekræftelse"];
     border-color: var(--color-primary-green-900);
   }
 
-  /* completed (valgfri) */
-  /* .circle.done {
-    background: var(--color-primary-green-900);
-    border-color: var(--color-primary-green-900);
-  } */
-
   /* linje */
   .line {
     width: 60px;
@@ -119,5 +113,20 @@ const steps = ["Vælg dato", "Vælg værelse", "Betaling", "Bekræftelse"];
     margin-top: 0.5rem;
     text-align: center;
     white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .line {
+      width: 40px;
+    }
+
+    .step {
+      margin-right: 40px;
+    }
+
+    .circle {
+      width: 40px;
+      height: 40px;
+    }
   }
 </style>
