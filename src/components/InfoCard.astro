@@ -5,7 +5,7 @@ import Text from "./Text.astro";
 const { icon, title, text } = Astro.props;
 ---
 
-<div class="bg-secondary-beige-100 p-5 md:p-12 flex flex-col items-center text-center aspect-square w-full h-full">
+<div class="bg-secondary-beige-100 p-5 md:p-12 flex flex-col items-center text-center w-full md:w-full h-full">
   <img src={icon} alt={title} class="w-9 h-9 mb-3 mt-10 md:w-15 md:h-15 md:mb-5" />
 
   <Heading htmlheading="h3" size="medium" font="display" stylingclasses="mb-3md:mb-5">
