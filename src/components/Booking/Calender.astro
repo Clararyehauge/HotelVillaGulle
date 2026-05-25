@@ -21,7 +21,7 @@ const years = Array.from({ length: 4 }, (_, i) => initialYear + i);
       <div class="calendar-nav">
         <button type="button" class="calendar-nav__arrow" data-prev aria-label="Forrige måned"> &#8249; </button>
         <div class="calendar-nav__center">
-          <Heading htmlheading="h4" size="small" font="display" stylingclasses="mb-4 text-white md:mb-1 text-center">
+          <Heading htmlheading="h3" size="small" font="display" stylingclasses="mb-4 text-white md:mb-1 text-center">
             <div class="calendar-nav__month-group">
               <select class="calendar-nav__select calendar-nav__select--month" data-month-select aria-label="Vælg måned">
                 {
@@ -50,7 +50,7 @@ const years = Array.from({ length: 4 }, (_, i) => initialYear + i);
       <div class="calendar-grid" data-grid></div>
 
       <div class="calendar-controls">
-        <Heading htmlheading="h5" size="xsmall" font="display" stylingclasses="">
+        <Heading htmlheading="h4" size="xsmall" font="display" stylingclasses="">
           <label class="sr-only" for="calendar-guests">Antal gæster</label>
           <select id="calendar-guests" class="calendar-guests" name="guests">
             {
