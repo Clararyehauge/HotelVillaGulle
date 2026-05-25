@@ -1,14 +1,9 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import Link from "../components/Link.astro";
-import { Image } from "astro:assets";
-import thumbsup from "../assets/images/thumbsup.png";
 import Heading from "../components/Heading.astro";
 import Text from "../components/Text.astro";
 import Button from "../components/Button.astro";
-import DropdownSection from "../components/Dropdownsection.astro";
-import HeroPages from "../components/HeroPages.astro";
-import AktiviteterCard from "../components/AktiviteterCard.astro";
+import DropdownSection from "../components/DropdownSection.astro";
 import VarelseSlider from "../components/VarelseSlider.astro";
 
 const aktiviteterdropdown = [
@@ -265,6 +260,11 @@ const reviews = [
         </div>
       </div>
     </section>
+
+    <!-- DROPDOWN AF AKTIVITETER -->
+    <div class="page-container">
+      <DropdownSection heading="Aktiviteter" image="/aktiviteter_drop.png" imageAlt="Af terassen" items={aktiviteterdropdown} showButton={true} />
+    </div>
 
     <!-- GÆSTE REVIEWS -->
     <section class="relative z-20 md:pb-15">
