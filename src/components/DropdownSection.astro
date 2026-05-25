@@ -46,19 +46,18 @@ const {
           </summary>
 
           <!-- Indhold der vises ved åbning -->
-          <div class="mt-8 flex flex-col gap-0">
-            {item.tagline && (
-                <Heading htmlheading="h4" size="xsmall" font="display" stylingclasses="font-light">
-              {item.tagline}
-            </Heading>
-             
-            )}
-            {item.body && (
-              <Text teksttype="brødtekst" stylingclasses="font-light">
-                {item.body}
-              </Text>
-            )}
-          </div>
+      <div class="flex flex-col gap-1"> 
+  {item.tagline && (
+    <Heading htmlheading="h4" size="xsmall" font="display" stylingclasses="font-light mt-4">
+      {item.tagline}
+    </Heading>
+  )}
+  {item.body && (
+    <Text teksttype="brødtekst" stylingclasses="font-light">
+      {item.body}
+    </Text>
+  )}
+</div>
         </details>
       ))}
     </div>

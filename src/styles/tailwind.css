@@ -30,6 +30,14 @@
 }
 
 @theme {
+  /*Sektion Farver */
+  --color-green-900: #173a31;
+  --color-gul-50: #fffdf5;
+  --color-Surface-neutral-50: #fafafa;
+  --color-beige-100: #eee9d7;
+  --color-beige-50: #f9f7f1;
+  --color-blue-100: #e4eaf1;
+
   /* Farver */
   --color-green-700: #205b4b;
   --color-green-950: #0d211d;
