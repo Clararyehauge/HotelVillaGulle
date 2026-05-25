@@ -15,7 +15,7 @@ interface Props {
 const { title, leftImage, leftImageAlt, rightImage, rightImageAlt, content, subtitle = "Villa Gulle" } = Astro.props;
 ---
 
-<section class="w-full bg-[var(--color-secondary-blue-100)]">
+<section class="w-full bg-[var(--color-secondary-blue-100)] pb-10 md:pb-0">
   <div class="flex flex-col lg:flex-row h-[77dvh] md:h-[85dvh] lg:h-[95dvh]">
     {/* Billede til venstre - skjult på mobil */}
     <div class="hidden lg:block lg:w-1/2 overflow-hidden">

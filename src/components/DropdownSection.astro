@@ -11,6 +11,7 @@ const {
   buttonText = "Læs mere",
   buttonHref = "/aktiviteter",
   showButton = true,
+   imageClass = "card-right",
 } = Astro.props;
 ---
 
@@ -77,7 +78,7 @@ const {
   <img
     src={image}
     alt={imageAlt}
-    class="max-w-sm lg:max-w-md xl:max-w-lg h-auto object-contain"
+class={`max-w-sm lg:max-w-md xl:max-w-lg h-auto object-contain ${imageClass}`}
     loading="lazy"
   />
 </div>

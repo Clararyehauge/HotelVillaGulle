@@ -15,7 +15,7 @@ const rooms = await res.json();
 <MainLayout title="Betaling">
   <main class="page-container py-10 md:py-12">
     <a href="/book_step2" class="absolute left-4 top-10 z-20 inline-flex items-center justify-center md:left-15 md:top-40" aria-label="Tilbage">
-      <img src="/icons/back-sort.svg" alt="Tilbage" class="h-6 w-6 md:h-8 md:w-8" />
+      <img src="/icons/back-sort.svg" alt="Tilbage" class="h-6 w-6 md:h-8 md:w-8 transform transition-transform duration-300 hover:-translate-y-1" />
     </a>
     <StepIndicator currentStep={3} />
 
