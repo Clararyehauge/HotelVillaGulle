@@ -31,36 +31,39 @@
 
 @theme {
   /*Sektion Farver */
-  --color-green-900: #173a31;
-  --color-gul-50: #fffdf5;
-  --color-Surface-neutral-50: #fafafa;
-  --color-beige-100: #eee9d7;
-  --color-beige-50: #f9f7f1;
-  --color-blue-100: #e4eaf1;
+  --color-sektion-beige: #eee9d7;
+  --color-sektion-blue: #e4eaf1;
+  --color-sektion-lys: #f9f7f1;
+  --color-sektion-green: #173a31;
 
-  /* Farver */
+  /*Baggrund Farver */
+  --color-baggrund-gul: #fffdf5;
+
+  /*Knap Farver */
+  --color-knap-primary: #173a31;
+  --color-knap-neutral: #eee9d7;
+
+  /*Knap Hover Tekst*/
   --color-green-700: #205b4b;
   --color-green-950: #0d211d;
-
-  --color-neutral-300: #d4d4d8;
-  --color-neutral-600: #52525b;
-
   --color-beige-200: #ded4b4;
 
-  --color-white: #ffffff;
+  /*Navigation Farver */
+  --color-navigation-green-900: #173a31;
 
-  /*Toksens Farver */
-  --color-primary-green-900: #173a31;
-  --color-primary-Background-50: #fffdf5;
-  --color-Surface-neutral-50: #fafafa;
-  --color-secondary-beige-100: #eee9d7;
-  --color-secondary-beige-50: #f9f7f1;
-  --color-secondary-blue-100: #e4eaf1;
+  /*Footer Farver */
+  --color-footer-green-900: #173a31;
+
+  /*Grafik Farver */
+  --color-grafik-primær-green-900: #173a31;
+  --color-grafik-sekundær-neutral-50: #fafafa;
+  --color-neutral-600: #52525b;
 
   /*Farver Tekst*/
-  --color-primary-neutral-950: #09090b;
-  --color-secondary-neutral-600: #52525b;
-  --color-inverce-neutral-50: #fafafa;
+  --color-text-primary-neutral-950: #09090b;
+  --color-text-secondary-neutral-600: #52525b;
+  --color-text-inverce-neutral-50: #fafafa;
+  --color-neutral-300: #d4d4d8;
 
   /*Typografi */
   --font-sans: "Montserrat", sans-serif;

@@ -185,11 +185,11 @@ const aktiviteterdropdown = [
     function setActiveDot(index) {
       dots.forEach((dot, i) => {
         if (i === index) {
-          dot.classList.add("bg-primary-green-900", "scale-125");
+          dot.classList.add("bg-knap-primary", "scale-125");
           dot.classList.remove("bg-gray-300");
         } else {
           dot.classList.add("bg-gray-300");
-          dot.classList.remove("bg-primary-green-900", "scale-125");
+          dot.classList.remove("bg-knap-primary", "scale-125");
         }
       });
     }

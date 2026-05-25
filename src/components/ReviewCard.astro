@@ -5,7 +5,7 @@ const { title, text, name, rating } = Astro.props;
 const stjerner = Array.from({ length: rating });
 ---
 
-<div class="h-full flex flex-col bg-primary-Background-50 p-3 border-primary-green-900 border-2">
+<div class="h-full flex flex-col bg-baggrund-gul p-3 border-grafik-primær-green-900 border-2">
   <div class="flex mb-3 gap-1">
     {stjerner.map(() => <img src="/stjerne.png" class="w-7 h-7" alt="stjerne" />)}
   </div>
@@ -14,7 +14,7 @@ const stjerner = Array.from({ length: rating });
       {title}
     </Heading>
 
-    <Text teksttype="brødtekst" stylingclasses="text-gray-600 mb-4">
+    <Text teksttype="brødtekst" stylingclasses="text-secondary-neutral-600 mb-4">
       {text}
     </Text>
 

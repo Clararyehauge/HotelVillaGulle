@@ -35,12 +35,12 @@ const images = room.Images?.split(",").map((url) => url.trim()) ?? [];
 
 <MainLayout>
   <main class="px-4 py-6 md:px-[var(--gutter)] md:py-20">
-    <div class="relative mx-auto max-w-[520px] rounded-[10px] bg-primary-green-900 px-4 py-6 md:max-w-[1340px] md:rounded-[6px] md:px-12 md:py-12">
+    <div class="relative mx-auto max-w-[520px] rounded-[10px] bg-sektion-green px-4 py-6 md:max-w-[1340px] md:rounded-[6px] md:px-12 md:py-12">
       <a href="/book" class="absolute left-4 top-4 z-20 inline-flex items-center justify-center md:left-8 md:top-8" aria-label="Tilbage">
         <img src="/icons/back_pil.svg" alt="Tilbage" class="h-6 w-6 md:h-8 md:w-8" />
       </a>
 
-      <Heading htmlheading="h2" size="large" font="display" stylingclasses="mb-6 text-center text-white pt-4 md:mb-10 md:pt-0"> Mere info </Heading>
+      <Heading htmlheading="h2" size="large" font="display" stylingclasses="mb-6 text-center text-text-inverce-neutral-50 pt-4 md:mb-10 md:pt-0"> Mere info </Heading>
 
       <div class="grid grid-cols-1 gap-8 md:grid-cols-[minmax(0,680px)_320px] md:items-start md:justify-center md:gap-30">
         <!-- Venstre side -->
@@ -56,7 +56,7 @@ const images = room.Images?.split(",").map((url) => url.trim()) ?? [];
               </div>
 
               <div class="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2 md:hidden">
-                {images.map((_, i) => <button class="dot h-2 w-2 rounded-full bg-white/50 transition-colors hover:bg-white" data-index={i} aria-label={`Gå til billede ${i + 1}`} />)}
+                {images.map((_, i) => <button class="dot h-2 w-2 rounded-full bg-white/50 transition-colors hover:bg-text-inverce-neutral-50" data-index={i} aria-label={`Gå til billede ${i + 1}`} />)}
               </div>
             </div>
 
@@ -68,40 +68,40 @@ const images = room.Images?.split(",").map((url) => url.trim()) ?? [];
 
         <!-- Højre side -->
         <div class="pl-13 md:pt-4">
-          <Heading htmlheading="h3" size="medium" font="display" stylingclasses="mb-4 text-white md:mb-6"> Inkluderet </Heading>
+          <Heading htmlheading="h3" size="medium" font="display" stylingclasses="mb-4 text-text-inverce-neutral-50 md:mb-6"> Inkluderet </Heading>
 
           <ul class="space-y-1 md:space-y-1 justify-center">
             <li class="flex items-center gap-2">
               <img src="/icons/morgenmadhvid.svg" alt="" class="h-6 w-6 md:h-8 md:w-8 object-contain" aria-hidden="true" />
-              <Text teksttype="brødtekst" stylingclasses="font-light text-white md:text-[16px]">Morgenmad</Text>
+              <Text teksttype="brødtekst" stylingclasses="font-light text-text-inverce-neutral-50 md:text-[16px]">Morgenmad</Text>
             </li>
             <li class="flex items-center gap-4">
               <img src="/icons/parkeringhvid.svg" alt="" class="h-6 w-6 md:h-8 md:w-8 object-contain" aria-hidden="true" />
-              <Text teksttype="brødtekst" stylingclasses="font-light text-white md:text-[16px]">Fri parkering</Text>
+              <Text teksttype="brødtekst" stylingclasses="font-light text-text-inverce-neutral-50 md:text-[16px]">Fri parkering</Text>
             </li>
             <li class="flex items-center gap-4">
               <img src="/icons/badevarelse.svg" alt="" class="h-6 w-6 md:h-8 md:w-8 object-contain" aria-hidden="true" />
-              <Text teksttype="brødtekst" stylingclasses="font-light text-white md:text-[16px]">Eget badeværelse</Text>
+              <Text teksttype="brødtekst" stylingclasses="font-light text-text-inverce-neutral-50 md:text-[16px]">Eget badeværelse</Text>
             </li>
             <li class="flex items-center gap-4">
               <img src="/icons/udsigt.svg" alt="" class="h-6 w-6 md:h-8 md:w-8 object-contain" aria-hidden="true" />
-              <Text teksttype="brødtekst" stylingclasses="font-light text-white md:text-[16px]">Udsigt til havnen</Text>
+              <Text teksttype="brødtekst" stylingclasses="font-light text-text-inverce-neutral-50 md:text-[16px]">Udsigt til havnen</Text>
             </li>
             <li class="flex items-center gap-4">
               <img src="/icons/kvadratmeter.svg" alt="" class="h-6 w-6 md:h-8 md:w-8 object-contain" aria-hidden="true" />
-              <Text teksttype="brødtekst" stylingclasses="font-light text-white md:text-[16px]">{room.size_sqm} m² værelse</Text>
+              <Text teksttype="brødtekst" stylingclasses="font-light text-text-inverce-neutral-50 md:text-[16px]">{room.size_sqm} m² værelse</Text>
             </li>
             <li class="flex items-center gap-4">
               <img src="/icons/personer.svg" alt="" class="h-6 w-6 md:h-8 md:w-8 object-contain" aria-hidden="true" />
-              <Text teksttype="brødtekst" stylingclasses="font-light text-white md:text-[16px]">{room.capacity} personer</Text>
+              <Text teksttype="brødtekst" stylingclasses="font-light text-text-inverce-neutral-50 md:text-[16px]">{room.capacity} personer</Text>
             </li>
             <li class="flex items-center gap-4">
               <img src="/icons/selvbetjening.svg" alt="" class="h-6 w-6 md:h-8 md:w-8 object-contain" aria-hidden="true" />
-              <Text teksttype="brødtekst" stylingclasses="font-light text-white md:text-[16px]">Selvbetjening af Trust-bar</Text>
+              <Text teksttype="brødtekst" stylingclasses="font-light text-text-inverce-neutral-50 md:text-[16px]">Selvbetjening af Trust-bar</Text>
             </li>
             <li class="flex items-center gap-4">
               <img src="/icons/udeareal.svg" alt="" class="h-6 w-6 md:h-8 md:w-8 object-contain" aria-hidden="true" />
-              <Text teksttype="brødtekst" stylingclasses="font-light text-white md:text-[16px]">Ude areal</Text>
+              <Text teksttype="brødtekst" stylingclasses="font-light text-text-inverce-neutral-50 md:text-[16px]">Ude areal</Text>
             </li>
           </ul>
         </div>
@@ -109,7 +109,7 @@ const images = room.Images?.split(",").map((url) => url.trim()) ?? [];
 
       <!-- Beskrivelse under begge kolonner -->
       <div class="mx-auto mt-6 max-w-[400px] md:mt-8 md:max-w-[1000px]">
-        <Text teksttype="brødtekst" stylingclasses="text-left font-light leading-relaxed text-white md:text-[16px] md:leading-[1.45]">
+        <Text teksttype="brødtekst" stylingclasses="text-left font-light leading-relaxed text-text-inverce-neutral-50 md:text-[16px] md:leading-[1.45]">
           {room.description}
         </Text>
       </div>

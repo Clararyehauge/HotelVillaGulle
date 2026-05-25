@@ -14,14 +14,14 @@ const years = Array.from({ length: 4 }, (_, i) => initialYear + i);
   <!-- Desktop kalender -->
   <div class="calendar-card" data-calendar data-initial-month={initialMonth} data-initial-year={initialYear}>
     <div class="calendar-card__header">
-      <Heading htmlheading="h2" size="large" font="display" stylingclasses="mb-4 text-white md:mb-1 text-center"> {title} </Heading>
+      <Heading htmlheading="h2" size="large" font="display" stylingclasses="mb-4 text-text-inverce-neutral-50 md:mb-1 text-center"> {title} </Heading>
     </div>
 
     <div class="calendar-card__body">
       <div class="calendar-nav">
         <button type="button" class="calendar-nav__arrow" data-prev aria-label="Forrige måned"> &#8249; </button>
         <div class="calendar-nav__center">
-          <Heading htmlheading="h3" size="small" font="display" stylingclasses="mb-4 text-white md:mb-1 text-center">
+          <Heading htmlheading="h3" size="small" font="display" stylingclasses="mb-4 text-text-inverce-neutral-50 md:mb-1 text-center">
             <div class="calendar-nav__month-group">
               <select class="calendar-nav__select calendar-nav__select--month" data-month-select aria-label="Vælg måned">
                 {
@@ -391,14 +391,14 @@ const years = Array.from({ length: 4 }, (_, i) => initialYear + i);
       width: 100%;
       overflow: hidden;
       border-radius: 0.35rem;
-      background: var(--color-primary-green-900);
-      color: #fff;
+      background: var(--color-knap-primary);
+      color: var(--color-inverce-neutral-50);
       box-shadow: none;
     }
 
     .calendar-card__header {
       padding: 1.1rem 1.5rem 1rem;
-      border-bottom: 1px solid rgba(255, 253, 245, 0.65);
+      border-bottom: 1px solid var(--color-inverce-neutral-50);
     }
 
     .calendar-card__body {
@@ -434,8 +434,8 @@ const years = Array.from({ length: 4 }, (_, i) => initialYear + i);
       top: 48%;
       width: 0.5rem;
       height: 0.5rem;
-      border-right: 1.5px solid rgba(255, 253, 245, 0.9);
-      border-bottom: 1.5px solid rgba(255, 253, 245, 0.9);
+      border-right: 1.5px solid var(--color-text-inverce-neutral-50);
+      border-bottom: 1.5px solid var(--color-text-inverce-neutral-50);
       transform: translateY(-50%) rotate(45deg);
       pointer-events: none;
     }
@@ -448,7 +448,7 @@ const years = Array.from({ length: 4 }, (_, i) => initialYear + i);
       padding: 0;
       border: 0;
       background: transparent;
-      color: #fffdf5;
+      color: var(--color-text-inverce-neutral-50);
       font-size: 2rem;
       font-weight: 300;
       line-height: 1;
@@ -465,7 +465,7 @@ const years = Array.from({ length: 4 }, (_, i) => initialYear + i);
       -moz-appearance: none;
       border: 0;
       background: transparent;
-      color: #fffdf5;
+      color: var(--color-text-inverce-neutral-50);
       font-family: Georgia, "Times New Roman", serif;
       font-size: 1.05rem;
       font-weight: 600;
@@ -488,8 +488,8 @@ const years = Array.from({ length: 4 }, (_, i) => initialYear + i);
       grid-template-columns: repeat(7, 1fr);
       gap: 0;
       margin-bottom: 2rem;
-      background: var(--color-primary-Background-50);
-      border: 1px solid rgba(17, 17, 17, 0.28);
+      background: var(--color-baggrund-gul);
+      border: 1px solid var(--color-text-primary-neutral-950);
     }
 
     .calendar-controls {
@@ -502,9 +502,9 @@ const years = Array.from({ length: 4 }, (_, i) => initialYear + i);
       width: 100%;
       height: 2.95rem;
       border-radius: 0.25rem;
-      border: 1px solid rgba(17, 17, 17, 0.2);
-      background: var(--color-primary-Background-50);
-      color: #1f1c18;
+      border: 1px solid var(--color-text-primary-neutral-950);
+      background: var(--color-baggrund-gul);
+      color: var(--color-text-primary-neutral-950);
       font-family: Georgia, "Times New Roman", serif;
       font-size: 1rem;
       box-shadow: none;
@@ -515,7 +515,7 @@ const years = Array.from({ length: 4 }, (_, i) => initialYear + i);
       -webkit-appearance: none;
       -moz-appearance: none;
       padding: 0 2.9rem 0 1rem;
-      background-image: linear-gradient(45deg, transparent 50%, #1f1c18 50%), linear-gradient(135deg, #1f1c18 50%, transparent 50%);
+      background-image: linear-gradient(45deg, transparent 50%, var(--color-text-primary-neutral-950) 50%), linear-gradient(135deg, var(--color-text-primary-neutral-950) 50%, transparent 50%);
       background-position:
         calc(100% - 1.45rem) calc(50% - 0.12rem),
         calc(100% - 1rem) calc(50% - 0.12rem);
@@ -532,7 +532,7 @@ const years = Array.from({ length: 4 }, (_, i) => initialYear + i);
 
     .calendar-next:hover,
     .calendar-guests:hover {
-      background-color: var(--color-secondary-beige-100);
+      background-color: var(--color-sektion-beige);
     }
 
     /* ─── Dynamisk genererede celler via JS ─── */
@@ -541,10 +541,10 @@ const years = Array.from({ length: 4 }, (_, i) => initialYear + i);
       align-items: center;
       justify-content: center;
       min-height: 3.35rem;
-      border-left: 1px solid rgba(17, 17, 17, 0.28);
-      border-top: 1px solid rgba(17, 17, 17, 0.28);
-      background: var(--color-primary-Background-50);
-      color: #1f1c18;
+      border-left: 1px solid var(--color-text-primary-neutral-950);
+      border-top: 1px solid var(--color-text-primary-neutral-950);
+      background: var(--color-baggrund-gul);
+      color: var(--color-text-primary-neutral-950);
       font-family: Georgia, "Times New Roman", serif;
       font-size: 1.05rem;
       font-weight: 400;
@@ -570,19 +570,19 @@ const years = Array.from({ length: 4 }, (_, i) => initialYear + i);
     }
     :global(.calendar-day:hover) {
       background: #f5f1e6;
-      color: #1f1c18;
+      color: var(--color-text-primary-neutral-950);
     }
 
     :global(.calendar-day.is-checkin),
     :global(.calendar-day.is-checkout) {
-      background: var(--color-primary-green-900);
-      color: #fffdf5;
+      background: var(--color-knap-primary);
+      color: var(--color-inverce-neutral-50);
       font-weight: 700;
     }
 
     :global(.calendar-day.is-in-range) {
       background: #d8e8e0;
-      color: #1f1c18;
+      color: var(--color-text-primary-neutral-950);
     }
     /* Skjul mobil-layout på desktop */
     .mobile-booking {
@@ -622,7 +622,7 @@ const years = Array.from({ length: 4 }, (_, i) => initialYear + i);
       .mobile-label {
         font-family: Georgia, "Times New Roman", serif;
         font-size: 0.9rem;
-        color: #1f1c18;
+        color: var(--color-text-primary-neutral-950);
       }
 
       .mobile-date-input,
@@ -630,10 +630,10 @@ const years = Array.from({ length: 4 }, (_, i) => initialYear + i);
         width: 100%;
         height: 3rem;
         padding: 0 1rem;
-        border: 1px solid rgba(0, 0, 0, 0.2);
+        border: 1px solid var(--color-text-primary-neutral-950);
         border-radius: 0.25rem;
-        background: var(--color-primary-Background-50);
-        color: #1f1c18;
+        background: var(--color-baggrund-gul);
+        color: var(--color-text-primary-neutral-950);
         appearance: none;
         -webkit-appearance: none;
       }
@@ -642,9 +642,9 @@ const years = Array.from({ length: 4 }, (_, i) => initialYear + i);
         width: 100%;
         height: 3rem;
         border-radius: 0.25rem;
-        border: 1px solid rgba(17, 17, 17, 0.2);
-        background: var(--color-primary-Background-50);
-        color: #1f1c18;
+        border: 1px solid var(--color-text-primary-neutral-950);
+        background: var(--color-baggrund-gul);
+        color: var(--color-text-primary-neutral-950);
 
         cursor: pointer;
         margin-top: 0.5rem;
@@ -654,10 +654,10 @@ const years = Array.from({ length: 4 }, (_, i) => initialYear + i);
         width: 100%;
         height: 3rem;
         padding: 0 1rem;
-        border: 1px solid rgba(17, 17, 17, 0.2);
+        border: 1px solid var(--color-text-primary-neutral-950);
         border-radius: 0.25rem;
-        background: var(--color-primary-Background-50);
-        color: #1f1c18;
+        background: var(--color-baggrund-gul);
+        color: var(--color-text-primary-neutral-950);
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -667,8 +667,8 @@ const years = Array.from({ length: 4 }, (_, i) => initialYear + i);
 
       .mobile-cal-overlay {
         display: none;
-        background: var(--color-primary-Background-50);
-        border: 1px solid rgba(17, 17, 17, 0.2);
+        background: var(--color-baggrund-gul);
+        border: 1px solid var(--color-text-primary-neutral-950);
         border-radius: 0.25rem;
         padding: 0.75rem;
       }
@@ -684,7 +684,7 @@ const years = Array.from({ length: 4 }, (_, i) => initialYear + i);
         margin-bottom: 0.75rem;
         font-family: Georgia, serif;
         font-size: 0.95rem;
-        color: #1f1c18;
+        color: var(--color-text-primary-neutral-950);
       }
 
       .mobile-cal-nav button {
@@ -692,14 +692,14 @@ const years = Array.from({ length: 4 }, (_, i) => initialYear + i);
         border: none;
         font-size: 1.5rem;
         cursor: pointer;
-        color: #1f1c18;
+        color: var(--color-text-primary-neutral-950);
         padding: 0 0.5rem;
       }
 
       .mobile-cal-grid {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
-        border: 1px solid rgba(17, 17, 17, 0.2);
+        border: 1px solid var(--color-text-primary-neutral-950);
       }
 
       :global(.mobile-cal-day) {
@@ -709,10 +709,10 @@ const years = Array.from({ length: 4 }, (_, i) => initialYear + i);
         justify-content: center;
         font-family: Georgia, serif;
         font-size: 0.85rem;
-        color: #1f1c18;
-        border-left: 1px solid rgba(17, 17, 17, 0.15);
-        border-top: 1px solid rgba(17, 17, 17, 0.15);
-        background: var(--color-primary-Background-50);
+        color: var(--color-text-primary-neutral-950);
+        border-left: 1px solid var(--color-text-primary-neutral-950);
+        border-top: 1px solid var(--color-text-primary-neutral-950);
+        background: var(--color-baggrund-gul);
         cursor: pointer;
       }
 
@@ -728,12 +728,12 @@ const years = Array.from({ length: 4 }, (_, i) => initialYear + i);
       }
       :global(.mobile-cal-day.is-checkin),
       :global(.mobile-cal-day.is-checkout) {
-        background: var(--color-primary-green-900);
+        background: var(--color-knap-primary);
         color: #fff;
         font-weight: 700;
       }
       :global(.mobile-cal-day.is-in-range) {
-        background: #d8e8e0;
+        background: var(--color-text-inverce-neutral-50);
       }
     }
     @media (max-width: 768px) {

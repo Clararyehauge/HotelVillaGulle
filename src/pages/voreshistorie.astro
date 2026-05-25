@@ -26,7 +26,7 @@ import HeroPages from "../components/HeroPages.astro";
     <!-- HISTORIEN BAG — full-bleed -->
     <section class="grid md:grid-cols-2 items-center w-screen relative left-1/2 right-1/2 -translate-x-1/2">
       <!-- TEKSTBOKS — mere padding på mobil -->
-      <div class="bg-secondary-beige-100 w-full md:w-210 px-6 py-20 md:pl-40 md:p-20">
+      <div class="bg-sektion-beige w-full md:w-210 px-6 py-20 md:pl-40 md:p-20">
         <Heading htmlheading="h2" size="large" font="display" stylingclasses="mb-8"> Historien bag Hotel Villa Gulle </Heading>
         <div class="max-w-125">
           <Text teksttype="brødtekst">Når du træder ind ad døren på Hotel Villa Gulle, træder du ind i et stykke af Nyborgs historie. Vores fundament blev lagt helt tilbage i 1873, da den fynske skibsmægler Hans Friis opførte en storslået klassicistisk villa til sig selv og sin familie. Siden da har bygningerne levet mange liv – fra samlingspunkt for byens borgere i 1920'ernes nybyggede festsal til det lokale missionshotel.</Text>
@@ -44,23 +44,23 @@ import HeroPages from "../components/HeroPages.astro";
 
     <!-- FØR/EFTER -->
     <section class="page-container flex flex-col items-center mt-25 md:mt-0">
+      <div class="w-full max-w-[700px]">
+        <Heading htmlheading="h3" size="medium" font="display" stylingclasses="mb-2"> Se før og efter renovering af hotellets dagligstue. </Heading>
+      </div>
       <div class="relative w-full md:max-w-[700px] aspect-[4/3] overflow-hidden select-none" id="compare">
         <img src="/stue_efter.png" class="absolute inset-0 w-full h-full object-cover" alt="Efter renovering" />
         <img src="/stue_foer.png" class="absolute inset-0 w-full h-full object-cover" id="beforeImage" style="clip-path: inset(0 50% 0 0);" alt="Før renovering" />
-        <div class="absolute top-0 bottom-0 w-0.5 bg-secondary-beige-100 z-20" id="sliderLine" style="left: 50%; transform: translateX(-50%);"></div>
-        <div class="absolute top-1/2 z-30 w-10 h-10 bg-secondary-beige-100 rounded-full cursor-ew-resize flex items-center justify-center" id="handle" style="left: 50%; transform: translate(-50%, -50%);">
+        <div class="absolute top-0 bottom-0 w-0.5 bg-sektion-beige z-20" id="sliderLine" style="left: 50%; transform: translateX(-50%);"></div>
+        <div class="absolute top-1/2 z-30 w-10 h-10 bg-sektion-beige rounded-full cursor-ew-resize flex items-center justify-center" id="handle" style="left: 50%; transform: translate(-50%, -50%);">
           <span>↔</span>
         </div>
-      </div>
-      <div class="w-full max-w-[700px]">
-        <Text teksttype="brødtekst">Se før og efter renovering af hotellets dagligstue.</Text>
       </div>
     </section>
 
     <!-- BREV — full-bleed baggrundsbillede -->
     <section class="relative py-20">
       <img src="/tapet_baggrund.png" class="absolute inset-0 w-full h-full object-cover z-0" alt="" />
-      <div class="relative z-10 bg-primary-Background-50 p-20 max-w-90 md:max-w-180 mx-auto">
+      <div class="relative z-10 bg-baggrund-gul p-20 max-w-90 md:max-w-180 mx-auto">
         <Heading htmlheading="h2" size="large" font="display" stylingclasses="mb-10"> Kære gæster på Hotel Villa Gulle, </Heading>
         <Text teksttype="brødtekst" stylingclasses="mb-5">Det glæder mig at byde jer velkommen til et sted, hvor ro og varme mødes. Jeg har skabt dette hotel med ønsket om, at alle skal føle sig hjemme, blot lidt mere forkælet.</Text>
         <Text teksttype="brødtekst">Nyd vores stille kroge, den bløde morgenkaffe og den venlige stemning i hvert rum. Skulle I mangle noget, er min dør altid åben, og jeg lytter gerne.</Text>

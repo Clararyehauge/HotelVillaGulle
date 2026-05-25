@@ -15,14 +15,15 @@ const rooms = await res.json();
 <MainLayout title="Betaling">
   <main class="page-container py-10 md:py-12">
     <a href="/book_step2" class="absolute left-4 top-10 z-20 inline-flex items-center justify-center md:left-15 md:top-40" aria-label="Tilbage">
-      <img src="/icons/back-sort.svg" alt="Tilbage" class="h-6 w-6 md:h-8 md:w-8 transform transition-transform duration-300 hover:-translate-y-1" />
+      <img src="/icons/back-sort.svg" alt="Tilbage" class="h-6 w-6 md:h-8 md:w-8 transition-transform duration-300 hover:-translate-y-1" />
     </a>
+
     <StepIndicator currentStep={3} />
 
     <Heading htmlheading="h2" size="large" font="display" stylingclasses="mb-8 text-center"> Dine detaljer & betaling </Heading>
 
-    <section class="step3-layout">
-      <aside class="summary-side">
+    <section class="grid grid-cols-1 gap-6 items-start md:grid-cols-[5fr_7fr] md:gap-40">
+      <aside class="relative top-0 md:sticky md:top-8">
         <BookingSummaryStep3 rooms={rooms} />
       </aside>
       <div>
@@ -31,46 +32,3 @@ const rooms = await res.json();
     </section>
   </main>
 </MainLayout>
-
-<style>
-  .step3-layout {
-    display: grid;
-    grid-template-columns: 5fr 7fr;
-    gap: 10rem;
-    align-items: start;
-  }
-
-  .summary-side {
-    position: sticky;
-    top: 2rem;
-  }
-
-  @media (max-width: 768px) {
-    .step3-layout {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    .summary-side {
-      position: relative;
-      top: 0;
-    }
-  }
-
-  .summary-side {
-    position: sticky;
-    top: 2rem;
-  }
-
-  @media (max-width: 768px) {
-    .step3-layout {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    .summary-side {
-      position: relative;
-      top: 0;
-    }
-  }
-</style>

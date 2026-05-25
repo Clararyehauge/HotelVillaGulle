@@ -58,8 +58,8 @@ const rooms = data.slice(0, 6);
   .calendar-side {
     position: sticky;
     top: 2rem;
-    background: var(--color-primary-green-900);
-    color: white;
+    background: var(--color-sektion-green);
+    color: var(--color-text-inverce-neutral-50);
     padding: 1.5rem;
     border-radius: 8px;
     min-height: 520px; /* placeholder til kalender */
@@ -78,7 +78,6 @@ const rooms = data.slice(0, 6);
     padding-right: 0.5rem;
   }
 
-  /* Scrollbar (valgfri, men giver samme feel) */
   .rooms-scroll::-webkit-scrollbar {
     width: 6px;
   }
@@ -98,7 +97,7 @@ const rooms = data.slice(0, 6);
       top: 0;
       min-height: auto;
       background: transparent;
-      color: black;
+      color: var(--color-text-primary-neutral-950);
       padding: 0;
     }
 
