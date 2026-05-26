@@ -94,12 +94,12 @@ const aktiviteterdropdown = [
       <div class="page-container relative">
         <!-- Venstre pil (kun mobil) -->
         <button data-info-prev aria-label="Forrige" class="md:hidden absolute left-2 top-1/2 -translate-y-1/2 z-10">
-          <img src="/icons/knap_review_venstre.png" alt="Forrige" class="w-7 h-auto" onmouseover="this.src='/icons/knap_review_venstre_hover.png'" onmouseout="this.src='/icons/knap_review_venstre.png'" />
+          <img src="/icons/knap_review_venstre.png" alt="Forrige" class="w-7 h-auto" onmouseover="if(window.innerWidth>=768) this.src='/icons/knap_review_venstre_hover.png'" onmouseout="if(window.innerWidth>=768) this.src='/icons/knap_review_venstre.png'" />
         </button>
 
         <!-- Højre pil (kun mobil) -->
         <button data-info-next aria-label="Næste" class="md:hidden absolute right-2 top-1/2 -translate-y-1/2 z-10">
-          <img src="/icons/knap_review_hoejre.png" alt="Næste" class="w-7 h-auto" onmouseover="this.src='/icons/knap_review_hoejre_hover.png'" onmouseout="this.src='/icons/knap_review_hoejre.png'" />
+          <img src="/icons/knap_review_hoejre.png" alt="Næste" class="w-7 h-auto" onmouseover="if(window.innerWidth>=768) this.src='/icons/knap_review_hoejre_hover.png'" onmouseout="if(window.innerWidth>=768) this.src='/icons/knap_review_hoejre.png'" />
         </button>
 
         <div id="info-scroll" class="flex gap-3 md:gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory scroll-x md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible">
