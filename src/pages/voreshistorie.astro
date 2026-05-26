@@ -60,42 +60,44 @@ import HeroPages from "../components/HeroPages.astro";
     <!-- BREV — full-bleed baggrundsbillede -->
     <section class="relative py-20">
       <img src="/tapet_baggrund.png" class="absolute inset-0 w-full h-full object-cover z-0" alt="" />
-      <div class="relative z-10 bg-baggrund-gul p-20 max-w-100 md:max-w-180 mx-auto">
-        <Heading htmlheading="h2" size="large" font="display" stylingclasses="mb-10"> Kære gæster på Hotel Villa Gulle, </Heading>
-        <Text teksttype="brødtekst" stylingclasses="mb-5">Det glæder mig at byde jer velkommen til et sted, hvor ro og varme mødes. Jeg har skabt dette hotel med ønsket om, at alle skal føle sig hjemme, blot lidt mere forkælet.</Text>
-        <Text teksttype="brødtekst">Nyd vores stille kroge, den bløde morgenkaffe og den venlige stemning i hvert rum. Skulle I mangle noget, er min dør altid åben, og jeg lytter gerne.</Text>
-        <Heading htmlheading="h5" size="xsmall" font="display" stylingclasses="mt-10"> Med venlig hilsen, Joakim, jeres hotelejer </Heading>
+      <div class="relative z-10 bg-baggrund-gul p-20 max-w-90 md:max-w-180 mx-auto">
+        <div class="max-w-75">
+          <Heading htmlheading="h2" size="large" font="display" stylingclasses="mb-10"> Kære gæster på Hotel Villa Gulle, </Heading>
+          <Text teksttype="brødtekst" stylingclasses="mb-5">Det glæder mig at byde jer velkommen til et sted, hvor ro og varme mødes. Jeg har skabt dette hotel med ønsket om, at alle skal føle sig hjemme, blot lidt mere forkælet.</Text>
+          <Text teksttype="brødtekst">Nyd vores stille kroge, den bløde morgenkaffe og den venlige stemning i hvert rum. Skulle I mangle noget, er min dør altid åben, og jeg lytter gerne.</Text>
+          <Heading htmlheading="h5" size="xsmall" font="display" stylingclasses="mt-10"> Med venlig hilsen, Joakim, jeres hotelejer </Heading>
+        </div>
       </div>
     </section>
   </main>
+
+  <script>
+    const container = document.getElementById("compare");
+    const beforeImage = document.getElementById("beforeImage");
+    const sliderLine = document.getElementById("sliderLine");
+    const handle = document.getElementById("handle");
+
+    let isDown = false;
+
+    function setPosition(x) {
+      const rect = container.getBoundingClientRect();
+      let pos = Math.max(0, Math.min(1, (x - rect.left) / rect.width));
+      const percent = pos * 100;
+      beforeImage.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+      sliderLine.style.left = `${percent}%`;
+      handle.style.left = `${percent}%`;
+    }
+
+    container.addEventListener("mousedown", () => (isDown = true));
+    window.addEventListener("mouseup", () => (isDown = false));
+    window.addEventListener("mousemove", (e) => {
+      if (isDown) setPosition(e.clientX);
+    });
+
+    container.addEventListener("touchstart", () => (isDown = true));
+    window.addEventListener("touchend", () => (isDown = false));
+    window.addEventListener("touchmove", (e) => {
+      if (isDown) setPosition(e.touches[0].clientX);
+    });
+  </script>
 </MainLayout>
-
-<script>
-  const container = document.getElementById("compare");
-  const beforeImage = document.getElementById("beforeImage");
-  const sliderLine = document.getElementById("sliderLine");
-  const handle = document.getElementById("handle");
-
-  let isDown = false;
-
-  function setPosition(x) {
-    const rect = container.getBoundingClientRect();
-    let pos = Math.max(0, Math.min(1, (x - rect.left) / rect.width));
-    const percent = pos * 100;
-    beforeImage.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
-    sliderLine.style.left = `${percent}%`;
-    handle.style.left = `${percent}%`;
-  }
-
-  container.addEventListener("mousedown", () => (isDown = true));
-  window.addEventListener("mouseup", () => (isDown = false));
-  window.addEventListener("mousemove", (e) => {
-    if (isDown) setPosition(e.clientX);
-  });
-
-  container.addEventListener("touchstart", () => (isDown = true));
-  window.addEventListener("touchend", () => (isDown = false));
-  window.addEventListener("touchmove", (e) => {
-    if (isDown) setPosition(e.touches[0].clientX);
-  });
-</script>
