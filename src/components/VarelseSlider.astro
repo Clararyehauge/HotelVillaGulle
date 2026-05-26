@@ -48,12 +48,12 @@ const { slides } = Astro.props;
     <div class="relative">
       <!-- Venstre pil -->
       <button data-prev aria-label="Forrige" class="absolute -left-8 md:-left-16 top-1/2 -translate-y-1/2 z-10">
-        <img src="/icons/knap_review_venstre.png" alt="Forrige" class="w-7 h-auto md:w-8 md:h-auto" />
+        <img src="/icons/knap_review_venstre.png" alt="Forrige" class="w-7 h-auto md:w-8 md:h-auto" onmouseover="this.src='/icons/knap_review_venstre_hover.png'" onmouseout="this.src='/icons/knap_review_venstre.png'" />
       </button>
 
       <!-- Højre pil -->
       <button data-next aria-label="Næste" class="absolute -right-8 md:-right-16 top-1/2 -translate-y-1/2 z-10">
-        <img src="/icons/knap_review_hoejre.png" alt="Næste" class="w-7 h-auto md:w-8 md:h-auto" />
+        <img src="/icons/knap_review_hoejre.png" alt="Næste" class="w-7 h-auto md:w-8 md:h-auto" onmouseover="this.src='/icons/knap_review_hoejre_hover.png'" onmouseout="this.src='/icons/knap_review_hoejre.png'" />
       </button>
 
       <!-- Karussel -->

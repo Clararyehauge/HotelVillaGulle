@@ -20,12 +20,19 @@ const { items } = Astro.props;
 <!-- MOBIL -->
 <div class="lg:hidden relative">
 
-  <button data-aktivitet-prev aria-label="Forrige" class="absolute -left-8 md:-left-16 top-1/2 -translate-y-1/2 z-10">
-    <img src="/icons/knap_review_venstre.png" alt="Forrige" class="w-7 h-auto md:w-8 md:h-auto" />
-  </button>
+ <button
+  data-aktivitet-prev
+  aria-label="Forrige"
+  class="absolute -left-8 md:-left-16 top-1/2 -translate-y-1/2 z-10"
+>
+  <img
+    src="/icons/knap_review_venstre.png"
+    alt="Forrige" class="w-7 h-auto md:w-8 md:h-auto" onmouseover="this.src='/icons/knap_review_venstre_hover.png'" onmouseout="this.src='/icons/knap_review_venstre.png'"
+  />
+</button>
 
   <button data-aktivitet-next aria-label="Næste" class="absolute -right-8 md:-right-16 top-1/2 -translate-y-1/2 z-10">
-    <img src="/icons/knap_review_hoejre.png" alt="Næste" class="w-7 h-auto md:w-9 md:h-auto" />
+    <img src="/icons/knap_review_hoejre.png" alt="Næste" class="w-7 h-auto md:w-9 md:h-auto" onmouseover="this.src='/icons/knap_review_hoejre_hover.png'" onmouseout="this.src='/icons/knap_review_hoejre.png'" />
   </button>
 
   <div data-aktivitet-slider class="flex overflow-x-auto gap-4 py-5 snap-x snap-mandatory scroll-smooth scrollbar-hide" style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;">

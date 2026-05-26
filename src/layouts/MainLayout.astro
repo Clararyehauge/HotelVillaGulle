@@ -37,33 +37,37 @@ const { title } = Astro.props;
 <script>
   import { animate, inView } from "motion";
 
-  inView(".card-left", (element) => {
-    animate(
-      element,
-      {
-        x: ["-80px", "0px"],
-        opacity: [0, 1],
-        scale: [0.96, 1],
-      },
-      {
-        duration: 1.2,
-        easing: [0.22, 1, 0.36, 1],
-      },
-    );
-  });
+  const isDesktop = window.matchMedia("(min-width: 768px)").matches;
 
-  inView(".card-right", (element) => {
-    animate(
-      element,
-      {
-        x: ["80px", "0px"],
-        opacity: [0, 1],
-        scale: [0.96, 1],
-      },
-      {
-        duration: 1.2,
-        easing: [0.22, 1, 0.36, 1],
-      },
-    );
-  });
+  if (isDesktop) {
+    inView(".card-left", (element) => {
+      animate(
+        element,
+        {
+          x: ["-80px", "0px"],
+          opacity: [0, 1],
+          scale: [0.96, 1],
+        },
+        {
+          duration: 1.2,
+          easing: [0.22, 1, 0.36, 1],
+        },
+      );
+    });
+
+    inView(".card-right", (element) => {
+      animate(
+        element,
+        {
+          x: ["80px", "0px"],
+          opacity: [0, 1],
+          scale: [0.96, 1],
+        },
+        {
+          duration: 1.2,
+          easing: [0.22, 1, 0.36, 1],
+        },
+      );
+    });
+  }
 </script>
