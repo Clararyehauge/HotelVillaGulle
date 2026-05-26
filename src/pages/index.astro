@@ -271,100 +271,100 @@ const reviews = [
       <div class="page-container">
         <div class="relative">
           <button id="reviews-prev" class="absolute -left-8 md:-left-16 top-1/2 -translate-y-1/2 z-10">
-            <img src="/icons/knap_review_venstre.png" class="w-7 h-auto md:w-8 md:h-auto" alt="venstre" onmouseover="this.src='/icons/knap_review_venstre_hover.png'" onmouseout="this.src='/icons/knap_review_venstre.png'" />
-          </button>
-          <button id="reviews-next" class="absolute -right-8 md:-right-16 top-1/2 -translate-y-1/2 z-10">
-            <img src="/icons/knap_review_hoejre.png" class="w-7 h-auto md:w-8 md:h-auto" alt="højre" onmouseover="this.src='/icons/knap_review_hoejre_hover.png'" onmouseout="this.src='/icons/knap_review_hoejre.png'" />
-          </button>
-          <div id="reviews-viewport" class="overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide">
-            <div id="reviews-track" class="flex">
-              {
-                reviews.map((r) => (
-                  <div class="w-[90%] sm:w-[90%] md:w-1/2 lg:w-1/3 p-3 shrink-0 mx-auto">
-                    <ReviewCard {...r} />
-                  </div>
-                ))
-              }
+            <img src="/icons/knap_review_venstre.png" class="w-7 h-auto md:w-8 md:h-auto" onmouseover="if(window.innerWidth>=768) this.src='/icons/knap_review_venstre_hover.png'" onmouseout="if(window.innerWidth>=768) this.src='/icons/knap_review_venstre.png'" />
+            <button id="reviews-next" class="absolute -right-8 md:-right-16 top-1/2 -translate-y-1/2 z-10">
+              <img src="/icons/knap_review_hoejre.png" class="w-7 h-auto md:w-8 md:h-auto" alt="højre" onmouseover="this.src='/icons/knap_review_hoejre_hover.png'" onmouseout="this.src='/icons/knap_review_hoejre.png'" />
+            </button>
+            <div id="reviews-viewport" class="overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide">
+              <div id="reviews-track" class="flex">
+                {
+                  reviews.map((r) => (
+                    <div class="w-[90%] sm:w-[90%] md:w-1/2 lg:w-1/3 p-3 shrink-0 mx-auto">
+                      <ReviewCard {...r} />
+                    </div>
+                  ))
+                }
+              </div>
             </div>
-          </div>
+          </button>
+          <div id="reviews-dots" class="flex gap-2 mt-4 justify-center mb-15 md:mb-10"></div>
         </div>
-        <div id="reviews-dots" class="flex gap-2 mt-4 justify-center mb-15 md:mb-10"></div>
       </div>
     </section>
   </main>
-</MainLayout>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const viewport = document.getElementById("reviews-viewport") as HTMLElement;
-    const track = document.getElementById("reviews-track") as HTMLElement;
-    const prevBtn = document.getElementById("reviews-prev") as HTMLButtonElement;
-    const nextBtn = document.getElementById("reviews-next") as HTMLButtonElement;
-    const dotsContainer = document.getElementById("reviews-dots") as HTMLElement;
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const viewport = document.getElementById("reviews-viewport") as HTMLElement;
+      const track = document.getElementById("reviews-track") as HTMLElement;
+      const prevBtn = document.getElementById("reviews-prev") as HTMLButtonElement;
+      const nextBtn = document.getElementById("reviews-next") as HTMLButtonElement;
+      const dotsContainer = document.getElementById("reviews-dots") as HTMLElement;
 
-    if (!viewport || !track || !prevBtn || !nextBtn || !dotsContainer) return;
+      if (!viewport || !track || !prevBtn || !nextBtn || !dotsContainer) return;
 
-    let index = 0;
+      let index = 0;
 
-    const getSlidesPerView = () => {
-      if (window.innerWidth >= 1024) return 3;
-      if (window.innerWidth >= 768) return 2;
-      return 1;
-    };
+      const getSlidesPerView = () => {
+        if (window.innerWidth >= 1024) return 3;
+        if (window.innerWidth >= 768) return 2;
+        return 1;
+      };
 
-    const getSlides = () => Array.from(track.children) as HTMLElement[];
-    const maxIndex = () => getSlides().length - getSlidesPerView();
+      const getSlides = () => Array.from(track.children) as HTMLElement[];
+      const maxIndex = () => getSlides().length - getSlidesPerView();
 
-    function update() {
-      const slides = getSlides();
-      if (!slides.length) return;
-      const slideWidth = slides[0].getBoundingClientRect().width;
-      viewport.scrollTo({ left: slideWidth * index, behavior: "smooth" });
-      updateDots();
-    }
-
-    function createDots() {
-      dotsContainer.innerHTML = "";
-      for (let i = 0; i <= maxIndex(); i++) {
-        const dot = document.createElement("button");
-        dot.addEventListener("click", () => {
-          index = i;
-          update();
-        });
-        dotsContainer.appendChild(dot);
+      function update() {
+        const slides = getSlides();
+        if (!slides.length) return;
+        const slideWidth = slides[0].getBoundingClientRect().width;
+        viewport.scrollTo({ left: slideWidth * index, behavior: "smooth" });
+        updateDots();
       }
-      updateDots();
-    }
 
-    function updateDots() {
-      Array.from(dotsContainer.children).forEach((dot, i) => {
-        dot.className = i === index ? "w-2.5 h-2.5 rounded-full bg-black transition-all" : "w-2.5 h-2.5 rounded-full bg-gray-300 transition-all";
+      function createDots() {
+        dotsContainer.innerHTML = "";
+        for (let i = 0; i <= maxIndex(); i++) {
+          const dot = document.createElement("button");
+          dot.addEventListener("click", () => {
+            index = i;
+            update();
+          });
+          dotsContainer.appendChild(dot);
+        }
+        updateDots();
+      }
+
+      function updateDots() {
+        Array.from(dotsContainer.children).forEach((dot, i) => {
+          dot.className = i === index ? "w-2.5 h-2.5 rounded-full bg-black transition-all" : "w-2.5 h-2.5 rounded-full bg-gray-300 transition-all";
+        });
+      }
+
+      prevBtn.addEventListener("click", () => {
+        index = Math.max(index - 1, 0);
+        update();
       });
-    }
+      nextBtn.addEventListener("click", () => {
+        index = Math.min(index + 1, maxIndex());
+        update();
+      });
 
-    prevBtn.addEventListener("click", () => {
-      index = Math.max(index - 1, 0);
-      update();
-    });
-    nextBtn.addEventListener("click", () => {
-      index = Math.min(index + 1, maxIndex());
-      update();
-    });
+      viewport.addEventListener("scroll", () => {
+        const slides = getSlides();
+        if (!slides.length) return;
+        const slideWidth = slides[0].getBoundingClientRect().width;
+        index = Math.round(viewport.scrollLeft / slideWidth);
+        updateDots();
+      });
 
-    viewport.addEventListener("scroll", () => {
-      const slides = getSlides();
-      if (!slides.length) return;
-      const slideWidth = slides[0].getBoundingClientRect().width;
-      index = Math.round(viewport.scrollLeft / slideWidth);
-      updateDots();
-    });
+      window.addEventListener("resize", () => {
+        index = 0;
+        createDots();
+        update();
+      });
 
-    window.addEventListener("resize", () => {
-      index = 0;
       createDots();
-      update();
     });
-
-    createDots();
-  });
-</script>
+  </script>
+</MainLayout>
