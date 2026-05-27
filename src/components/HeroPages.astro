@@ -10,28 +10,30 @@ interface Props {
   rightImageAlt: string;
   content: string;
   subtitle?: string;
+  rightImageClasses?: string;
 }
 
-const { title, leftImage, leftImageAlt, rightImage, rightImageAlt, content, subtitle = "Villa Gulle" } = Astro.props;
+const { title, leftImage, leftImageAlt, rightImage, rightImageAlt, content, subtitle = "Villa Gulle", rightImageClasses = "w-48 md:w-64" } = Astro.props;
 ---
 
-<section class="w-full bg-sektion-blue pb-10 md:pb-0">
-  <div class="flex flex-col lg:flex-row h-[77dvh] md:h-[85dvh] lg:h-[95dvh]">
+<section class="w-full bg-sektion-blue pb-4 md:pb-0">
+  <div class="flex flex-col lg:flex-row h-[67dvh] md:h-[85dvh] lg:h-[95dvh]">
     {/* Billede til venstre - skjult på mobil */}
     <div class="hidden lg:block lg:w-1/2 overflow-hidden">
       <img src={leftImage} alt={leftImageAlt} class="w-full h-full object-cover object-bottom" />
     </div>
 
-    {/* Indhold - centreret på begge platforme */}
+    {/* Indhold */}
     <div class="lg:w-1/2 flex flex-col justify-center items-center px-8 py-10 lg:px-12 lg:py-16">
       <div class="w-full max-w-sm flex flex-col items-center">
-        <Heading htmlheading="h1" size="xlarge" font="display" stylingclasses="md:mb-2 text-center font-light w-full">
+        {/* mb-4 på mobil, md:mb-2 på desktop — genskaber den gap der forsvandt */}
+        <Heading htmlheading="h1" size="xlarge" font="display" stylingclasses="mb-4 md:mb-2 text-center font-light w-full">
           {title}
         </Heading>
 
         {/* Illustration */}
-        <div class="md:mb-0 w-50 md:w-60">
-          <img src={rightImage} alt={rightImageAlt} class="w-full h-70 object-contain" />
+        <div class={`mb-4 md:mb-3 ${rightImageClasses}`}>
+          <img src={rightImage} alt={rightImageAlt} class="w-full h-auto object-contain" />
         </div>
 
         <Text teksttype="brødtekst" stylingclasses="mb-6 text-center font-light">
