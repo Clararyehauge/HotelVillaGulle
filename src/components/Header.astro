@@ -116,14 +116,16 @@ hover:after:w-full"> Aktiviteter </a>
       line3?.classList.remove("-rotate-45", "-translate-y-[6.5px]");
     }
   });
-
-  document.addEventListener("DOMContentLoaded", () => {
+  function setActiveLink() {
     const currentPath = window.location.pathname;
-
     document.querySelectorAll(".nav-link").forEach((link) => {
       if (link.getAttribute("href") === currentPath) {
         link.classList.add("after:w-full");
       }
     });
-  });
+  }
+
+  setActiveLink();
+
+  document.addEventListener("astro:page-load", setActiveLink);
 </script>
