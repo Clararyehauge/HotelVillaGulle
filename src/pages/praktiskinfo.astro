@@ -1,12 +1,11 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import Link from "../components/Link.astro";
 import Heading from "../components/Heading.astro";
 import Text from "../components/Text.astro";
 import DropdownSection from "../components/DropdownSection.astro";
 import HeroPages from "../components/HeroPages.astro";
-import AktiviteterCard from "../components/AktiviteterCard.astro";
 import InfoCard from "../components/InfoCard.astro";
+import PreFooter from "../components/PreFooter.astro";
 
 const infoCards = [
   {
@@ -146,6 +145,7 @@ const aktiviteterdropdown = [
         <img src="/hotellets_grund.png" class="card-right w-100 md:w-140 h-auto" alt="Tegning af hotellets grund" />
       </div>
     </section>
+    <PreFooter />
   </main>
 </MainLayout>
 <style>

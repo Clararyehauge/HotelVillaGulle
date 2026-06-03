@@ -576,14 +576,26 @@ const years = Array.from({ length: 4 }, (_, i) => initialYear + i);
     :global(.calendar-day.is-checkin),
     :global(.calendar-day.is-checkout) {
       background: var(--color-knap-primary);
-      color: var(--color-inverce-neutral-50);
+      color: var(--color-text-inverce-neutral-50) !important;
       font-weight: 700;
     }
 
     :global(.calendar-day.is-in-range) {
       background: #d8e8e0;
-      color: var(--color-text-primary-neutral-950);
+      color: var(--color-text-primary-neutral-950) !important;
     }
+
+    :global(.calendar-day.is-in-range:hover) {
+      background: #d8e8e0;
+      color: white !important;
+    }
+
+    :global(.calendar-day.is-checkin:hover),
+    :global(.calendar-day.is-checkout:hover) {
+      background: var(--color-knap-primary);
+      color: white !important;
+    }
+
     /* Skjul mobil-layout på desktop */
     .mobile-booking {
       display: none;
@@ -729,7 +741,7 @@ const years = Array.from({ length: 4 }, (_, i) => initialYear + i);
       :global(.mobile-cal-day.is-checkin),
       :global(.mobile-cal-day.is-checkout) {
         background: var(--color-knap-primary);
-        color: #fff;
+        color: #fff !important;
         font-weight: 700;
       }
       :global(.mobile-cal-day.is-in-range) {
