@@ -14,8 +14,8 @@ const slug = data.slug;
 const isSelect = variant === "select";
 ---
 
-<article class="w-full max-w-[920px] grid gap-10 p-7 rounded-md shadow-md bg-sektion-lys md:grid-cols-[2fr_3fr]">
-  <img src={image} alt={name} class="w-full object-cover h-auto max-h-[380px] " />
+<article class="room-card w-full max-w-[920px] grid gap-10 p-7 rounded-md shadow-md bg-sektion-lys">
+  <img src={image} alt={name} class="room-card__img w-full object-cover h-auto max-h-[380px]" />
 
   <div class="flex flex-col justify-between py-3 gap-6">
     <!-- Titel + beskrivelse -->
@@ -28,32 +28,39 @@ const isSelect = variant === "select";
       </Text>
     </div>
 
-  <!-- Pris + knapper -->
-{isSelect ? (
-  <!-- SELECT: pris over, begge knapper nedenunder -->
-  <div class="flex flex-col gap-3">
-    <Heading htmlheading="h4" size="small" font="display">
-      Fra {price} dkk
-    </Heading>
-    <div class="flex items-center justify-between gap-3">
-  <a href={`/rooms/${slug}`} class="flex-1 block">
-    <Button variant="secondary" size="small" stylingclasses="w-full block">Mere info</Button>
-  </a>
-  <a href="#" class="choose-room flex-1 block" data-room-id={data.id}>
-    <Button variant="primary" size="small" stylingclasses="w-full block">Vælg</Button>
-  </a>
-</div>
-  </div>
-) : (
-  <div class="flex items-center justify-between gap-3">
-  <Heading htmlheading="h4" size="small" font="display">
-    Fra {price} dkk
-  </Heading>
-  <a id={`more-info-${data.id}`} href={`/rooms/${slug}`}>
-  <Button variant="secondary" size="small">Mere info</Button>
-</a>
-</div>
-)}
+    <!-- Pris + knapper -->
+    {
+      isSelect ? (
+        <div class="flex flex-col gap-3">
+          <Heading htmlheading="h4" size="small" font="display">
+            Fra {price} dkk
+          </Heading>
+          <div class="flex items-center justify-between gap-3">
+            <a id={`more-info-${data.id}`} href={`/rooms/${slug}`} class="flex-1 block">
+              <Button variant="secondary" size="small" stylingclasses="w-full block">
+                Mere info
+              </Button>
+            </a>
+            <a href="#" class="choose-room flex-1 block" data-room-id={data.id}>
+              <Button variant="primary" size="small" stylingclasses="w-full block">
+                Vælg
+              </Button>
+            </a>
+          </div>
+        </div>
+      ) : (
+        <div class="flex items-center justify-between gap-3">
+          <Heading htmlheading="h4" size="small" font="display">
+            Fra {price} dkk
+          </Heading>
+          <a id={`more-info-${data.id}`} href={`/rooms/${slug}`} data-from>
+            <Button variant="secondary" size="small">
+              Mere info
+            </Button>
+          </a>
+        </div>
+      )
+    }
   </div>
 </article>
 <script define:vars={{ roomSlug: slug, roomId: data.id }}>
@@ -61,11 +68,12 @@ const isSelect = variant === "select";
     const btn = document.getElementById(`more-info-${roomId}`);
     if (btn) {
       const params = new URLSearchParams(window.location.search);
+      params.set("from", window.location.pathname);
       btn.href = `/rooms/${roomSlug}?${params.toString()}`;
     }
   });
-  console.log("roomId:", roomId, "slug:", roomSlug);
 </script>
+
 <script>
   document.querySelectorAll(".choose-room").forEach((btn) => {
     btn.addEventListener("click", (e) => {
@@ -82,5 +90,14 @@ const isSelect = variant === "select";
   :global(.flex-1 > *) {
     width: 100%;
     display: block;
+  }
+
+  @media (min-width: 1200px) {
+    .room-card {
+      grid-template-columns: 2fr 3fr;
+    }
+    .room-card__img {
+      max-height: 380px;
+    }
   }
 </style>

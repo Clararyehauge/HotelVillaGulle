@@ -64,13 +64,19 @@ const roomsJson = JSON.stringify(rooms); // ← og denne
       <input type="text" id="co" name="co" placeholder="C/O" class="h-11 w-full rounded-[0.25rem] border border-sektion-lys bg-sektion-lys px-4 font-display text-[0.95rem] text-primary-neutral-950 placeholder:text-neutral-300 focus:border-grafik-primær-green-900 focus:outline-none focus:ring-1 focus:ring-grafik-primær-green-900" />
     </div>
 
+    <!-- Nyhedsbrev -->
+    <div class="flex flex-row gap-1.5">
+      <input type="checkbox" id="nyhedsbrev" name="nyhedsbrev" value="ja" />
+      <label for="nyhedsbrev" class="font-display text-[0.95rem] text-primary-neutral-950">Jeg vil gerne modtage nyhedsbreve</label>
+    </div>
+
     <!-- Lille info-tekst -->
     <Heading htmlheading="h3" size="xsmall" font="display" stylingclasses="font-light mb-2 text-text-secondary-neutral-600"> Kustoms brugsbetingelser gælder · Administrer autofyldningsindstillinger </Heading>
 
     <!-- I alt + pris (højrestillet) -->
     <div class="flex justify-end">
-      <span class="font-display text-[1rem] font-bold text-primary-neutral-950"> I alt &nbsp; </span>
-      <span class="font-display text-[1rem] font-bold underline text-primary-neutral-950" id="form-total-price"> – kr. </span>
+      <span class="font-display text-body font-bold text-primary-neutral-950"> I alt &nbsp; </span>
+      <span class="font-display text-body font-bold underline text-primary-neutral-950" id="form-total-price"> – kr. </span>
     </div>
 
     <!-- Tilbage + Betal -->

@@ -1,0 +1,40 @@
+---
+import Heading from "./Heading.astro";
+import Text from "./Text.astro";
+import Button from "./Button.astro";
+---
+
+<section class="grid grid-cols-1 md:grid-cols-[1fr_auto] items-center md:gap-12 lg:gap-15 px-8 py-16 bg-sektion-beige">
+  <!-- Venstre: tekst + formular -->
+  <div class="page-container py-2 md:py-5">
+    <div class="mb-6">
+      <Heading htmlheading="h2" size="large" font="display" stylingclasses="mb-2"> Vær den første til at modtage eksklusive fordele </Heading>
+      <Text teksttype="brødtekst" stylingclasses="font-light"> På Hotel Villa Gulle mødes autentiske oplevelser, nærvær og hjemlig charme. Her deler vi små glimt fra hotellet, lokale oplevelser og inspiration til dit næste besøg. </Text>
+    </div>
+
+    <Heading htmlheading="h3" size="small" font="display" stylingclasses="mb-4"> Tilmeld dig vores nyhedsbrev </Heading>
+    <!-- FormSpree - Sender link fra figma til email -->
+    <form action="https://formspree.io/f/xykvrlbn" method="POST">
+      <input type="hidden" name="nyhedsbrev_link" value="https://www.figma.com/proto/sHRUf3a0XYN0SYIMCJVpj5/Gulle_nyl%C3%B8sning_mundtligeskamen?page-id=5065%3A696&node-id=5065-697&p=f&viewport=189%2C109%2C0.14&t=CtEOgahTsRtyAY2j-1&scaling=scale-down&content-scaling=fixed" />
+
+      <div class="grid grid-cols-1 md:grid-cols-[1fr_1fr_auto] items-end gap-4">
+        <div class="flex flex-col gap-1.5">
+          <label for="navn" class="font-display text-[0.85rem] text-primary-neutral-950">Navn</label>
+          <input type="text" id="navn" name="navn" placeholder="Indtast dit navn" class="h-11 md:h-13 w-full rounded-sm border border-sektion-lys bg-sektion-lys px-4 font-display text-[0.95rem] text-primary-neutral-950 placeholder:text-neutral-300" />
+        </div>
+        <div class="flex flex-col gap-1.5">
+          <label for="email" class="font-display text-[0.85rem] text-primary-neutral-950">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="Indtast din e-mail" class="h-11 md:h-13 w-full rounded-sm border border-sektion-lys bg-sektion-lys px-4 font-display text-[0.95rem] text-primary-neutral-950 placeholder:text-neutral-300" />
+        </div>
+        <div>
+          <Button type="submit" variant="primary" size="medium" stylingclasses="w-full block">Tilmeld dig</Button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Højre: brev illustration -->
+  <div class="-mt-10 md:mt-0 -mr-8 flex justify-end">
+    <img src="/prefooterbrev.svg" alt="brev illustration" class="w-35 md:w-30 lg:w-45" />
+  </div>
+</section>
