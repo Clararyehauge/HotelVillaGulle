@@ -138,7 +138,7 @@ const years = Array.from({ length: 4 }, (_, i) => initialYear + i);
         const endTime = new Date(end).setHours(0, 0, 0, 0);
         return time > startTime && time < endTime;
       };
-
+      //Bygger kalenderen dynamisk baseret på den valgte måned og år.
       function renderCalendar() {
         grid.innerHTML = "";
 
@@ -153,7 +153,7 @@ const years = Array.from({ length: 4 }, (_, i) => initialYear + i);
 
         const daysInMonth = lastDay.getDate();
         const totalCells = Math.ceil((startWeekday + daysInMonth) / 7) * 7;
-
+        //Opretter knapper for hver dag i kalenderen
         for (let i = 0; i < totalCells; i++) {
           const dayNumber = i - startWeekday + 1;
           const button = document.createElement("button");
